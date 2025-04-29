@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <script src="https://js.stripe.com/v3/"></script>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <title>Fitness, Nutrition, and Coaching | Training With Jay</title>
+        <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
+    </head>
+    <body>
+        <div id="main">
+            <div class="navbar">
+                <!-- <div class="nav-logo-wrapper"> -->
+                <img src="images/official-logo.png" class="nav-logo" />
+                <!-- </div> -->
+                <div class="nav-button-container">
+                    <button class="nav-button" id="nav-button-home">HOME</button>
+                    <button class="nav-button" id="nav-button-challenges">CHALLENGES</button>
+                    <button class="nav-button" id="nav-button-merchandise">MERCHANDISE</button>
+                    <button class="nav-button" id="nav-button-programs">PROGRAMS</button>
+                    <button class="nav-button" id="nav-button-contactme">CONTACT ME</button>
+                    <div id="unfocused-div"></div>
+                    <div id="menu-container">
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                    </div>
+                    <div id="mobile-menu-container">
+                        <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-challenges">CHALLENGES</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">MERCHANDISE</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-programs">PROGRAMS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+            <div class="trial-content">
+                <form class="content-box-8" id="trial_form">
+                    <h2 class="content-box-8-title">EXPERIENCE THE DIFFERENCE</h2>
+                    <br />
+                    <h3 style="max-width: 80%; text-align: center" class="content-box-8-subheader">
+                        Ready to see what we're all about? Submit the form and unlock a full week of coaching for just $20. From custom workouts to custom diets, we got you covered!
+                    </h3>
+                    <br /><br />
+                    <div class="trail-wrapper" style="width: 100%">
+                        <div class="trail-card">
+                            <div class="trial-card-inputs">
+                                <div class="trial-card-left">
+                                    <h2>Contact Info</h2>
+                                    <input placeholder="Your Name" id="trial_from_name" name="from_name" class="text-inputs" />
+                                    <input placeholder="Email" id="trial_reply_to" name="reply_to" class="text-inputs" />
+                                    <input placeholder="Phone" id="trial_phone_number" name="from_phone" class="text-inputs" />
+                                    <input placeholder="Location (City/State)" id="trial_location" name="location" class="text-inputs" />
+                                    <br />
+                                    <h2>Fitness Goals</h2>
+                                    <label>What are your main fitness goals? (Select all that apply)</label>
+                                    <input type="text" hidden name="fitness_goals" id="fitness_goals"/>
+                                    <div class="trial-input-wrapper"><input type="checkbox" name="weight_loss" value="weight_loss" id="weight_loss" /><label>Weight Loss</label></div>
+                                    <div class="trial-input-wrapper"><input type="checkbox" name="build_muscle" value="build_muscle" id="build_muscle" /><label>Build Muscle</label></div>
+                                    <div class="trial-input-wrapper">
+                                        <input type="checkbox" name="increase_flexibility" value="increase_flexibility" id="increase_flexibility" /><label>Increase Flexibility</label>
+                                    </div>
+                                    <div class="trial-input-wrapper">
+                                        <input type="checkbox" name="improve_endurance" value="improve_endurance" id="improve_endurance" /><label>Improve Endurance</label>
+                                    </div>
+                                    <div class="trial-input-wrapper"><input type="checkbox" name="other" value="other" id="other" /><label>Other</label></div>
+                                    <label>Fitness experience level:</label>
+                                    <select id="experience_select" name="experience_select">
+                                        <option value="beginner">Beginner</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="advanced">Advanced</option>
+                                    </select>
+                                    <br />
+                                    <h2>Scheduling</h2>
+                                    <label>What days/times work best for you to schedule a call?</label>
+                                    <textarea id="availability" name="availability"></textarea>
+                                </div>
+                                <div class="trial-card-right">
+                                    <h2>Health & Fitness Background</h2>
+                                    <label>Do you have any medical conditions or injuries? (Yes/No) if yes, please explain:</label>
+                                    <textarea id="medical_conditions" name="medical_conditions"></textarea>
+                                    <label>Current exercise routine:</label>
+                                    <textarea id="current_routine" name="current_routine"></textarea>
+                                    <br />
+                                    <h2>Training Preferences</h2>
+                                    <label>Preferred training type:</label>
+                                    <select id="training_location" name="training_location">
+                                        <option value="in_person">In-Person</option>
+                                        <option value="virtual">Virtual</option>
+                                        <option value="hybrid">Hybrid (both)</option>
+                                    </select>
+                                    <label>How many days per week can you comfortably commit to working out?</label>
+                                    <select id="no_of_sessions" name="no_of_sessions">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br />
+                    <button class="submit-trial-btn" type="submit" style="max-width: 200px;">
+                        <div class="loader"></div>
+                        <p style="color: white" id="send-btn-text">Submit</p>
+                    </button>
+                    <br /><br />
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-details">
+                <a class="brand-logo-wrapper" href="https://www.instagram.com/jsouthard22" target="_blank">
+                    <img src="images/white-insta-icon.png" class="brand-logo-footer" />
+                </a>
+                <a class="brand-logo-wrapper" href="mailto:Trainingwithjayy@gmail.com?subject=Training%20Inquiry">
+                    <img src="images/white-gmail-icon.png" class="brand-logo-footer" />
+                </a>
+                <a
+                    class="brand-logo-wrapper"
+                    href="https://www.google.com/maps/place/Arlington+Heights,+IL/@42.0933805,-88.0681571,12z/data=!3m1!4b1!4m6!3m5!1s0x880fba3bce5cfa37:0xd764707ce5fdcac3!8m2!3d42.0883603!4d-87.9806265!16zL20vMHM0Zmc?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                >
+                    <img src="images/white-location-icon.png" class="brand-logo-footer" />
+                </a>
+            </div>
+            <small class="footer-copyright">C 2025 Copyright: Kai Larson</small>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet">
+        <script src="https://js.stripe.com/v3/"></script>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <title>Fitness, Nutrition, and Coaching | Training With Jay</title>
+        <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support.">
+        <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines">
+    </head>
+    <body>
+        <div id="main">
+            <div class="navbar">
+                <!-- <div class="nav-logo-wrapper"> -->
+                <img src="images/official-logo.png" class="nav-logo" />
+                <!-- </div> -->
+                <div class="nav-button-container">
+                    <button class="nav-button" id="nav-button-home">HOME</button>
+                    <button class="nav-button" id="nav-button-challenges">CHALLENGES</button>
+                    <button class="nav-button" id="nav-button-merchandise">MERCHANDISE</button>
+                    <button class="nav-button" id="nav-button-programs">PROGRAMS</button>
+                    <button class="nav-button" id="nav-button-contactme">CONTACT ME</button>
+                    <div id="unfocused-div"></div>
+                    <div id="menu-container">
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                    </div>
+                    <div id="mobile-menu-container">
+                        <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-challenges">CHALLENGES</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">MERCHANDISE</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-programs">PROGRAMS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-box-6">
+                    <div style="display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 20px; margin-bottom: 50px; flex-wrap: wrap;">
+                        <p class="merch-name">JAYS</p>
+                        <h2 class="content-box-6-title">BASEBALL CAP</h2>
+                    </div>
+                    <div class="content-box-6-container">
+                        <div class="merch-container">
+                            <div class="merch-imgs-container">
+                                <img src="images/img13.jpg" class="merch-page-img" id="selected-merch-image" />
+                                <div class="merch-other-imgs-container">
+                                    <img src="images/left.png" class="merch-arrow" id="merch-left-arrow" />
+                                    <img src="images/img13.jpg" class="merch-other-img selected-image" id="merch-img-1" />
+                                    <img src="images/hat2.jpg" class="merch-other-img" id="merch-img-2" />
+                                    <img src="images/hat2.jpg" class="merch-other-img" id="merch-img-3" />
+                                    <!-- <img src="images/img5.jpg" class="merch-other-img" id="hoodie-img-5" /> -->
+                                    <img src="images/right.png" class="merch-arrow" id="merch-right-arrow" />
+                                </div>
+                            </div>
+                            <div class="merch-details-container">
+                                <p class="merch-details-title">Train with Jay Baseball Cap</p>
+                                <p class="merch-details-price">$30.00/each</p>
+                                <small>Quantity will be selected on checkout*</small>
+                                <!-- <div class="merch-select-container">
+                                    <label>Please select a size</label>
+                                    <select class="merch-select" id="merch-size-select">
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </div>
+                                <div class="merch-select-container">
+                                    <label>Please select a quantity</label>
+                                    <select class="merch-select" id="merch-quantity-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div> -->
+                                <button class="merch-details-buy-btn" id="buy-hat-btn">Proceed to checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br />
+                </div>
+            </div>
+            <!-- Your content here -->
+            <!-- <button id="checkout-button">Checkout</button> -->
+        </div>
+        <div class="footer">
+            <div class="footer-details">
+                <a class="brand-logo-wrapper" href="https://www.instagram.com/jsouthard22" target="_blank">
+                    <img src="images/white-insta-icon.png" class="brand-logo-footer" />
+                </a>
+                <a class="brand-logo-wrapper" href="mailto:Trainingwithjayy@gmail.com?subject=Training%20Inquiry">
+                    <img src="images/white-gmail-icon.png" class="brand-logo-footer" />
+                </a>
+                <a
+                    class="brand-logo-wrapper"
+                    href="https://www.google.com/maps/place/Arlington+Heights,+IL/@42.0933805,-88.0681571,12z/data=!3m1!4b1!4m6!3m5!1s0x880fba3bce5cfa37:0xd764707ce5fdcac3!8m2!3d42.0883603!4d-87.9806265!16zL20vMHM0Zmc?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                >
+                    <img src="images/white-location-icon.png" class="brand-logo-footer" />
+                </a>
+            </div>
+            <small class="footer-copyright">C 2025 Copyright: Kai Larson</small>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</html>

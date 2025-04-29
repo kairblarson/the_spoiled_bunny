@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles.css?vers=3" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <script src="https://js.stripe.com/v3/"></script>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=1" />
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <title>The Spoiled Bunny</title>
+        <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
+        <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
+        <meta property="og:title" content="The Spoiled Bunny" />
+        <meta property="og:description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals." />
+        <meta property="og:image" content="images\official-logo.png" />
+        <!-- <meta property="og:url" content="https://trainwithjay.live/index.html" /> -->
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div id="main">
+            <!-- <div class="modal-container"><div class="modal"></div></div> -->
+            <div class="navbar">
+                <!-- <div class="nav-logo-wrapper"> -->
+                <img src="images/official-logo.png" class="nav-logo" />
+                <!-- </div> -->
+                <div class="nav-button-container">
+                    <button class="nav-button" id="nav-button-home">HOME</button>
+                    <button class="nav-button" id="nav-button-challenges">ABOUT</button>
+                    <a class="nav-button" id="nav-button-merchandise">PRODUCTS</a>
+                    <button class="nav-button" id="nav-button-contactme">CONTACT ME</button>
+                    <div id="unfocused-div"></div>
+                    <div id="menu-container">
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                    </div>
+                    <div id="mobile-menu-container">
+                        <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-challenges">ABOUT</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">PRODUCTS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- <video loop autoplay muted playsinline id="content-video">
+                    <source src="images/vid1.mov" />
+                </video> -->
+                <img src="images/background.jpg" id="content-video" />
+                <!-- <img src="images/vid1.mov" class="content-main-gif" /> -->
+                <div class="content-gif-overlay">
+                    <div class="content-overlay-container">
+                        <h1 class="content-name">THE SPOILED BUNNY</h1>
+                        <h2 class="content-header">BEST SOCKS,</h2>
+                        <h2 class="content-header">CONQUER TOMORROW</h2>
+                        <h2 class="content-subheader">YOUR ONLY REGRET? NOT BUYING SOONER</h2>
+                        <br />
+                        <div class="content-buttons-container">
+                            <button class="content-buttons" id="content-programs-btn">PRODUCTS</button>
+                            <button class="content-buttons" style="background-color: transparent; color: white; border: 1px solid white" id="content-contactme-btn">CONTACT ME</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-box-2">
+                    <div style="display: flex; gap: 50px; padding: 40px; max-width: 100%; justify-content: space-around" class="content-box-2-wrapper">
+                        <!-- <img src="images/about-me-img.jpeg" class="content-box-2-img" /> -->
+                        <div style="display: flex; flex-direction: column; max-width: 800px" class="content-box-2-text">
+                            <h2 class="content-box-2-title">ABOUT US</h2>
+                            <br />
+                            <!-- <h3 style="color: rgb(148, 148, 148); font-weight: 300; line-height: 1.85;">I am a lifting coach based out of Chicago, Illinois</h3> -->
+                            <br />
+                            <p style="line-height: 1.85; color: rgb(75, 75, 75)">
+                                Hello, my name is Skyler! I'm originally from Illinois but over the years, I found myself moving down to Houston, Texas. Last year, I started taking Pilates classes,
+                                and after my first class, I was hooked. I immediately added Pilates to my weekly workout schedule. One month into attending regular Pilates classes, I decided to become
+                                an instructor. I wanted to teach people why I love Pilates, how it has changed my life, and how it can change theirs. I finally found a fitness career to pursue along
+                                with my other passions. As I started my Pilates journey, I noticed that the grip socks on the market were boring and plain. I enjoy expressing myself through the
+                                clothes I wear, so it was most fitting to have socks that matched my energy. I started this shop because I wanted to share my fun designs with everyone. I wanted others
+                                to feel empowered for their first fitness class or feel secure on any slick floor. When I have a cute outfit on, it makes me feel good about walking anywhere. Something
+                                about unique grip socks gave me confidence. Knowing I looked good made me feel good too. So, I designed and created my line of grip socks. Nowhere else can you find
+                                grippies like the ones in my shop. My socks are meant for fitness classes, adding safety, and for your everyday life outfits. My priority is to provide excellent
+                                customer service and high-quality products. Every product is drawn out and designed by me, created with care and attention to detail. Whether it's an item for yourself
+                                or a gift for a loved one, I put my heart and soul into every one of my products. What you can expect from my shop is that feeling of uniqueness and confidence you will
+                                receive when you put on your first pair of grip socks from my shop. My socks provide protection, safety, and style all in one. My experience - 700 hours of active
+                                teaching classes, 120 days of teaching pilates classes. My socks are unique and stand out in a good way. Crew ankle length to help with ankle support and comfort Many
+                                grips to prevent slipping Bring more life to the socks - fun socks Emotion - losing traction on other socks and other not having enough grips to help support Comfort,
+                                perform well, and style Seams are thin so they don’t hurt your toes while wearing them.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="line-break"></div>
+                </div>
+                <div class="content-box-6" style="padding: 40px">
+                    <p class="merch-name">THE SPOILED BUNNY</p>
+                    <h2 class="content-box-6-title" style="margin-bottom: 50px">PRODUCTS</h2>
+                    <div class="content-box-6-container">
+                        <div class="content-box-6-merch">
+                            <img src="images/image2.png" class="merch-img" />
+                            <p class="merch-title">The Pink Princess Pilates pair</p>
+                            <p class="merch-desc">Bright Pink sock with Black and Red embroidery and Red heart-shaped grips</p>
+                            <p class="merch-price">$30.00</p>
+                            <!-- <button class="merch-buy-btn view-hoodie-btn">View</button> -->
+                        </div>
+                        <div class="content-box-6-merch">
+                            <img src="images/image7.png" class="merch-img" />
+                            <p class="merch-title">The dirty Martini Pair</p>
+                            <p class="merch-desc">White sock with Dirty Martini and Red heart-shaped grips on the bottom</p>
+                            <p class="merch-price">$30.00</p>
+                            <!-- <button class="merch-buy-btn view-cap-btn">View</button> -->
+                        </div>
+                    </div>
+                    <br /><br />
+                    <a class="goto-merch-btn" href="merchandise.html">SEE MORE <img src="images/right-arrow.png" class="goto-arrow" /></a>
+                    <!-- <div class="line-break" style="margin-top: 50px"></div> -->
+                </div>
+                <!-- <div class="line-break"></div> -->
+                <form class="content-box-4" style="padding: 40px" id="contact-form">
+                    <h2 class="content-box-4-title">CONTACT ME</h2>
+                    <br />
+                    <h3 style="max-width: 80%">Feel free to send me a message if you have any questions about me or my products!</h3>
+                    <br /><br />
+                    <div class="contact-wrapper">
+                        <div class="contact-card">
+                            <input placeholder="Your Name" id="from_name" name="from_name" class="text-inputs" />
+                            <input placeholder="Email" id="reply_to" name="reply_to" class="text-inputs" />
+                            <textarea placeholder="Message" id="message" name="message"></textarea>
+                            <button class="send-msg-btn" id="send-msg-btn" type="submit">
+                                <div class="loader"></div>
+                                <p style="color: white" id="send-btn-text">Send</p>
+                            </button>
+                        </div>
+                        <div class="socials-card">
+                            <a class="brand-logo-wrapper" href="https://www.instagram.com/jsouthard22" target="_blank">
+                                <img src="images/insta-logo.png" class="brand-logos" />
+                                <p>@thespoiledbunny</p>
+                            </a>
+                            <a class="brand-logo-wrapper" href="mailto:Trainingwithjayy@gmail.com?subject=Training%20Inquiry">
+                                <img src="images/email-icon.png" class="brand-logos" style="background-color: white" />
+                                <p>thespoiledbunnyus@gmail.com</p>
+                            </a>
+                            <a
+                                class="brand-logo-wrapper"
+                                href="https://www.google.com/maps/place/Arlington+Heights,+IL/@42.0933805,-88.0681571,12z/data=!3m1!4b1!4m6!3m5!1s0x880fba3bce5cfa37:0xd764707ce5fdcac3!8m2!3d42.0883603!4d-87.9806265!16zL20vMHM0Zmc?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank"
+                            >
+                                <img src="images/location-icon.png" class="brand-logos" />
+                                <p>Arlington Heights, IL.</p>
+                            </a>
+                            <!-- <div>
+                    <img src="images/insta-logo.png" class="brand-logos"/>
+                  </div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-details">
+                <a class="brand-logo-wrapper" href="https://www.instagram.com/thespoiledbunny" target="_blank">
+                    <img src="images/white-insta-icon.png" class="brand-logo-footer" />
+                </a>
+                <a class="brand-logo-wrapper" href="mailto:thespoiledbunnyus@gmail.com">
+                    <img src="images/white-gmail-icon.png" class="brand-logo-footer" />
+                </a>
+                <a
+                    class="brand-logo-wrapper"
+                    href="https://www.google.com/maps/place/Arlington+Heights,+IL/@42.0933805,-88.0681571,12z/data=!3m1!4b1!4m6!3m5!1s0x880fba3bce5cfa37:0xd764707ce5fdcac3!8m2!3d42.0883603!4d-87.9806265!16zL20vMHM0Zmc?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                >
+                    <img src="images/white-location-icon.png" class="brand-logo-footer" />
+                </a>
+            </div>
+            <small class="footer-copyright">C 2025 Copyright: Kai Larson</small>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js?vers=8"></script>
+</html>
