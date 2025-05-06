@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles.css?vers=3" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet" />
+        <script src="https://js.stripe.com/v3/"></script>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=1" />
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <title>The Spoiled Bunny</title>
+        <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
+        <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
+        <meta property="og:title" content="The Spoiled Bunny" />
+        <meta property="og:description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals." />
+        <meta property="og:image" content="images\official-logo.jpg" />
+        <!-- <meta property="og:url" content="https://trainwithjay.live/index.html" /> -->
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div id="main">
+            <!-- <div class="modal-container"><div class="modal"></div></div> -->
+            <div class="navbar">
+                <!-- <div class="nav-logo-wrapper"> -->
+                <!-- </div> -->
+                <div class="nav-button-container">
+                    <button class="nav-button" id="nav-button-home">HOME</button>
+                    <a class="nav-button" id="nav-button-merchandise">PRODUCTS</a>
+                    <button class="nav-button" id="nav-button-challenges">ABOUT</button>
+                    <button class="nav-button" id="nav-button-contactme">CONTACT ME</button>
+                    <div id="unfocused-div"></div>
+                    <div id="menu-container">
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                    </div>
+                    <div id="mobile-menu-container">
+                        <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">PRODUCTS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-challenges">ABOUT</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
+                    </div>
+                </div>
+                <div class="nav-logo-wrapper">
+                    <img src="images/official-logo.jpg" class="nav-logo" />
+                </div>
+                <div class="nav-icons-container">
+                    <img src="images/search.png" class="nav-icon" />
+                    <img src="images/cart.png?vers=2" class="nav-icon" />
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-box-6">
+                    <div class="content-box-6-container" style="margin-top: 150px;">
+                        <div class="merch-container">
+                            <div class="merch-imgs-container">
+                                <img src="images/image6.png" class="merch-page-img" id="selected-merch-image" />
+                                <div class="merch-other-imgs-container">
+                                    <!-- <img src="images/left.png" class="merch-arrow" id="merch-left-arrow" /> -->
+                                    <img src="images/image6.png" class="merch-other-img selected-image" id="merch-img-1" />
+                                    <img src="images/image6.png" class="merch-other-img" id="merch-img-2" />
+                                    <img src="images/image6.png" class="merch-other-img" id="merch-img-3" />
+                                    <!-- <img src="images/right.png" class="merch-arrow" id="merch-right-arrow" /> -->
+                                </div>
+                            </div>
+                            <div class="merch-details-container">
+                                <p class="merch-details-title">The Crew Grip Sock Get a Grip Blue</p>
+                                <p class="merch-details-price">$18.99/each</p>
+                                <!-- <small>Quantity will be selected on checkout*</small> -->
+                                <div class="merch-select-container">
+                                    <label>Please select a size</label>
+                                    <select class="merch-select" id="merch-size-select">
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </div>
+                                <div class="merch-select-container">
+                                    <label>Please select a quantity</label>
+                                    <select class="merch-select" id="merch-quantity-select">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <button class="merch-details-buy-btn" id="add-to-cart-getagrip-btn">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br />
+                </div>
+            </div>
+            <!-- Your content here -->
+            <!-- <button id="checkout-button">Checkout</button> -->
+        </div>
+        <div class="footer">
+            <div class="footer-details">
+                <a class="brand-logo-wrapper" href="https://www.instagram.com/thespoiledbunny" target="_blank">
+                    <img src="images/white-insta-icon.png" class="brand-logo-footer" />
+                </a>
+                <a class="brand-logo-wrapper" href="mailto:thespoiledbunnyus@gmail.com">
+                    <img src="images/white-gmail-icon.png" class="brand-logo-footer" />
+                </a>
+                <a
+                    class="brand-logo-wrapper"
+                    href="https://www.google.com/maps/place/Houston,+TX/@29.8356858,-95.7908299,10z/data=!3m1!4b1!4m6!3m5!1s0x8640b8b4488d8501:0xca0d02def365053b!8m2!3d29.7600771!4d-95.3701108!16zL20vMDNsMm4?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                >
+                    <img src="images/white-location-icon.png" class="brand-logo-footer" />
+                </a>
+            </div>
+            <small class="footer-copyright">C 2025 Copyright: Kai Larson</small>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</html>

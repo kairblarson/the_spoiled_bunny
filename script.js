@@ -70,11 +70,11 @@ $(document).ready(function () {
         //consolidate the fitness goals input to a new one that just includes their goals => FIX THIS, IT COMES OUT BLANK FOR SOME REASON
         let fitnessGoals = "";
 
-        $("#weight_loss").is(":checked") ? fitnessGoals += "Weight Loss, " : null;
-        $("#build_muscle").is(":checked") ? fitnessGoals += "Build Muscle, " : null;
-        $("#increase_flexibility").is(":checked") ? fitnessGoals += "Increase Flexibility, " : null;
-        $("#improve_endurance").is(":checked") ? fitnessGoals += "Improve Endurance, " : null;
-        $("#other").is(":checked") ? fitnessGoals += "Other, " : null;
+        $("#weight_loss").is(":checked") ? (fitnessGoals += "Weight Loss, ") : null;
+        $("#build_muscle").is(":checked") ? (fitnessGoals += "Build Muscle, ") : null;
+        $("#increase_flexibility").is(":checked") ? (fitnessGoals += "Increase Flexibility, ") : null;
+        $("#improve_endurance").is(":checked") ? (fitnessGoals += "Improve Endurance, ") : null;
+        $("#other").is(":checked") ? (fitnessGoals += "Other, ") : null;
 
         $("#fitness_goals").val(fitnessGoals);
 
@@ -149,57 +149,14 @@ $(document).ready(function () {
         // Redirect to the Payment Link
         window.location.href = paymentLink;
     });
-    //
 
-    //fitness plans
-    $("#foundation-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/dR617m7947S4e1W28d`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
+    //product pages
+    $(".princess-pink-btn").on("click", function () {
+        window.location.href = "PrincessPilatesPink.html";
     });
 
-    $("#accelerator-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/aEUdU8alg7S49LGeV0`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#elite-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/aEUaHWfFAdco6zu28f`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-    //
-
-    //90 Day Challenge
-    $("#three-competitor-enroll-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/7sIeYc0KG8W85vqaEG`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#ten-competitor-enroll-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/28o5nC9hcdco5vq4gj`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#twenty-competitor-enroll-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/3cs4jy50W6O0f60004`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
+    $(".get-a-grip-btn").on("click", function () {
+        window.location.href = "GetAGrip.html";
     });
     //
 
@@ -222,7 +179,7 @@ $(document).ready(function () {
     const widthOfMenu = $("#mobile-menu-container").width();
     $("#mobile-menu-container").css({
         top: "0px",
-        right: -(widthOfMenu + 100),
+        left: -(widthOfMenu + 100),
     });
 
     $(window).resize(function () {
@@ -241,13 +198,13 @@ $(document).ready(function () {
 
     $("#menu-container").click(function () {
         if (isMenuActive) {
-            $("#mobile-menu-container").animate({ right: -200 }, "slow");
+            $("#mobile-menu-container").animate({ left: -200 }, "slow");
             // $("#mobile-menu-container").css("display", "none");
             $("#unfocused-div").css("display", "none");
-            $(".menu-bar").css("background-color", "gainsboro");
+            // $(".menu-bar").css("background-color", "gainsboro");
             isMenuActive = false;
         } else {
-            $("#mobile-menu-container").animate({ right: "0px" }, "slow");
+            $("#mobile-menu-container").animate({ left: "0px" }, "slow");
             $("#mobile-menu-container").css("display", "flex");
             $("#unfocused-div").css("display", "block");
             isMenuActive = true;
@@ -257,13 +214,13 @@ $(document).ready(function () {
 
     $("#unfocused-div").click(function () {
         if (isMenuActive) {
-            $("#mobile-menu-container").animate({ right: -200 }, "slow");
+            $("#mobile-menu-container").animate({ left: -200 }, "slow");
             // $("#mobile-menu-container").css("display", "none");
             $("#unfocused-div").css("display", "none");
-            $(".menu-bar").css("background-color", "gainsboro");
+            // $(".menu-bar").css("background-color", "gainsboro");
             isMenuActive = false;
         } else {
-            $("#mobile-menu-container").animate({ right: "0px" }, "slow");
+            $("#mobile-menu-container").animate({ left: "0px" }, "slow");
             $("#mobile-menu-container").css("display", "flex");
             $("#unfocused-div").css("display", "block");
             isMenuActive = true;
@@ -434,10 +391,10 @@ $(document).ready(function () {
     //
 
     function hideMobileMenu() {
-        $("#mobile-menu-container").animate({ right: -200 }, "slow");
+        $("#mobile-menu-container").animate({ left: -200 }, "slow");
         // $("#mobile-menu-container").css("display", "none");
         $("#unfocused-div").css("display", "none");
-        $(".menu-bar").css("background-color", "gainsboro");
+        // $(".menu-bar").css("background-color", "gainsboro");
         isMenuActive = false;
     }
 
