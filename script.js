@@ -205,6 +205,7 @@ $(document).ready(function () {
     $(".cart-icon").click(function () {
         ////need to adjust spacing on some things
         //make the trash button actually do something
+        $(".checkout-items").empty();
         cart.forEach((item) => {
             $(".checkout-items").append(`
                 <div class='checkout-item'>
@@ -214,18 +215,18 @@ $(document).ready(function () {
                         <div style='display: flex; flex-direction: row; gap: 10px; align-items: center;'>
                             <label for='checkout-item-quantity-select' class='checkout-item-select-label'>Quantity: </label>
                             <select class='checkout-item-quantity-select'>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option selected>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
+                                <option ${item.productQuantity == 1 ? 'selected' : null}>1</option>
+                                <option ${item.productQuantity == 2 ? 'selected' : null}>2</option>
+                                <option ${item.productQuantity == 3 ? 'selected' : null}>3</option>
+                                <option ${item.productQuantity == 4 ? 'selected' : null}>4</option>
+                                <option ${item.productQuantity == 5 ? 'selected' : null}>5</option>
+                                <option ${item.productQuantity == 6 ? 'selected' : null}>6</option>
+                                <option ${item.productQuantity == 7 ? 'selected' : null}>7</option>
+                                <option ${item.productQuantity == 8 ? 'selected' : null}>8</option>
+                                <option ${item.productQuantity == 9 ? 'selected' : null}>9</option>
+                                <option ${item.productQuantity == 10 ? 'selected' : null}>10</option>
                             </select>
-                    <img src='images/trash.png' class='checkout-remove-item' />     
+                            <img src='images/trash.png' class='checkout-remove-item' />     
                         </div>
                     </div>  
                 </div>
