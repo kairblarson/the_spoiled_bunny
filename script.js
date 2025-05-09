@@ -1,13 +1,54 @@
+const exampleCartItem = {
+    productName: "socks",
+    productPrice: 18.99,
+    productQuantity: 1,
+    productImage: "image/src.jpg",
+    productID: 12345, //if applicable (i imagine it is)
+};
+let cart = [];
+
+function getCart() {
+    return cart;
+}
+
+getCartFromSession();
+
+function getCartFromSession() {
+    const cartSession = JSON.parse(sessionStorage.getItem("cart"));
+    console.log(cartSession);
+    if (cartSession) {
+        cart = cartSession;
+        $(".cart-amount").html(cartSession.length > 0 ? cartSession.length : $(".cart-amount").hide());
+        $(".cart-amount").show();
+    }
+}
+
+function addItemToCart(item) {
+    console.log("adding to cart: " + JSON.stringify(item));
+    cart.push(item);
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+    $("#cart").val(cart); //might be able to deprecate this then
+    //add a message that says that the item has been added to the cart
+}
+
+function removeFromCart(item) {
+    //remove it here
+}
+
+function submitOrder() {
+    //call serverless function here to generate checkout session i think
+    console.log("CART: " + JSON.stringify(cart));
+}
+
 $(document).ready(function () {
     let isMenuActive = false;
+    let isCartActive = false;
 
     $(".loader").hide();
 
     //need to do some form validation and add a loading modal or something
     $("#contact-form").on("submit", function (event) {
         const isValidated = performFormValidation();
-
-        console.log("Is valid? " + isValidated);
 
         if (!isValidated) return false;
 
@@ -60,49 +101,6 @@ $(document).ready(function () {
         return true;
     }
 
-    $("#trial_form").on("submit", function (event) {
-        const isValidated = validateTrialForm();
-
-        if (!isValidated) return false;
-
-        event.preventDefault();
-
-        //consolidate the fitness goals input to a new one that just includes their goals => FIX THIS, IT COMES OUT BLANK FOR SOME REASON
-        let fitnessGoals = "";
-
-        $("#weight_loss").is(":checked") ? (fitnessGoals += "Weight Loss, ") : null;
-        $("#build_muscle").is(":checked") ? (fitnessGoals += "Build Muscle, ") : null;
-        $("#increase_flexibility").is(":checked") ? (fitnessGoals += "Increase Flexibility, ") : null;
-        $("#improve_endurance").is(":checked") ? (fitnessGoals += "Improve Endurance, ") : null;
-        $("#other").is(":checked") ? (fitnessGoals += "Other, ") : null;
-
-        $("#fitness_goals").val(fitnessGoals);
-
-        $("#send-btn-text").hide();
-        $(".loader").show();
-
-        emailjs.init("5TPwb3kOLF_MWJSG7");
-
-        emailjs.sendForm("service_xraq8lh", "template_wlvkz06", this).then(
-            function (response) {
-                $(".loader").hide();
-                $("#send-btn-text").show();
-                alert("Email has been sent, we will get back to you shortly");
-                document.getElementById("trial_form").reset();
-            },
-            function (error) {
-                $(".loader").hide();
-                $("#send-btn-text").show();
-                alert("Email could not be sent, please try again later");
-                console.log("FAILED...", error);
-            }
-        );
-    });
-
-    function validateTrialForm() {
-        return true;
-    }
-
     $("#merch-right-arrow").click(function () {
         const selectedImage = $(".selected-image");
         const selectedImageID = Number(selectedImage.attr("id").substring(10, selectedImage.attr("id").length));
@@ -133,23 +131,6 @@ $(document).ready(function () {
         selectedImage.removeClass("selected-image");
     });
 
-    //merch products
-    $("#buy-hat-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/28o3fuctoa0cbTObII`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#buy-sweatshirt-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/28o17mcto0pC7Dy6op`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
     //product pages
     $(".princess-pink-btn").on("click", function () {
         window.location.href = "PrincessPilatesPink.html";
@@ -157,6 +138,10 @@ $(document).ready(function () {
 
     $(".get-a-grip-btn").on("click", function () {
         window.location.href = "GetAGrip.html";
+    });
+
+    $(".dirty-martini-btn").on("click", function () {
+        window.location.href = "DirtyMartini.html";
     });
     //
 
@@ -182,6 +167,12 @@ $(document).ready(function () {
         left: -(widthOfMenu + 100),
     });
 
+    const widthOfCheckout = $(".checkout-menu").width();
+    $(".checkout-menu").css({
+        top: "0px",
+        right: -(widthOfCheckout + 200),
+    });
+
     $(window).resize(function () {
         // console.log("Window resized to: " + $(window).width() + "x" + $(window).height());
         const heightOfVideo = $("#content-video").height();
@@ -199,9 +190,7 @@ $(document).ready(function () {
     $("#menu-container").click(function () {
         if (isMenuActive) {
             $("#mobile-menu-container").animate({ left: -200 }, "slow");
-            // $("#mobile-menu-container").css("display", "none");
             $("#unfocused-div").css("display", "none");
-            // $(".menu-bar").css("background-color", "gainsboro");
             isMenuActive = false;
         } else {
             $("#mobile-menu-container").animate({ left: "0px" }, "slow");
@@ -212,19 +201,56 @@ $(document).ready(function () {
         }
     });
 
+    //now actually dynamically fill cart here
+    $(".cart-icon").click(function () {
+        ////need to adjust spacing on some things
+        //make the trash button actually do something
+        cart.forEach((item) => {
+            $(".checkout-items").append(`
+                <div class='checkout-item'>
+                    <img src='${item.productImage}' class='checkout-item-image' />
+                    <div class='checkout-item-details'>
+                        <p class='checkout-item-title'>${item.productName}</p>
+                        <div style='display: flex; flex-direction: row; gap: 10px; align-items: center;'>
+                            <label for='checkout-item-quantity-select' class='checkout-item-select-label'>Quantity: </label>
+                            <select class='checkout-item-quantity-select'>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option selected>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                    <img src='images/trash.png' class='checkout-remove-item' />     
+                        </div>
+                    </div>  
+                </div>
+            `);
+        });
+
+        $(".checkout-menu").animate({ right: "0px" }, "slow");
+        $(".checkout-menu").css("display", "flex");
+        $("#unfocused-div").css("display", "block");
+        isCartActive = true;
+    });
+
     $("#unfocused-div").click(function () {
-        if (isMenuActive) {
+        //hide the mobile menu
+        if (isMenuActive && !isCartActive) {
             $("#mobile-menu-container").animate({ left: -200 }, "slow");
-            // $("#mobile-menu-container").css("display", "none");
             $("#unfocused-div").css("display", "none");
-            // $(".menu-bar").css("background-color", "gainsboro");
             isMenuActive = false;
-        } else {
-            $("#mobile-menu-container").animate({ left: "0px" }, "slow");
-            $("#mobile-menu-container").css("display", "flex");
-            $("#unfocused-div").css("display", "block");
-            isMenuActive = true;
-            $(".menu-bar").css("background-color", "black");
+        }
+
+        //hide cart
+        if (isCartActive && !isMenuActive) {
+            $(".checkout-menu").animate({ right: -400 }, "slow");
+            $("#unfocused-div").css("display", "none");
+            isCartActive = false;
         }
     });
 
@@ -265,18 +291,6 @@ $(document).ready(function () {
         );
     });
 
-    $("#nav-button-programs").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=programs";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-3").offset().top - 100,
-            },
-            1000
-        );
-    });
-
     $("#nav-button-aboutme").click(function () {
         if (checkIfOnIndexPage() == false) {
             window.location.href = "index.html?scrollTo=aboutme";
@@ -284,18 +298,6 @@ $(document).ready(function () {
         $("html, body").animate(
             {
                 scrollTop: $(".content-box-2").offset().top - 100,
-            },
-            1000
-        );
-    });
-
-    $("#nav-button-challenges").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=challenges";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-7").offset().top - 100,
             },
             1000
         );
@@ -332,19 +334,6 @@ $(document).ready(function () {
         hideMobileMenu();
     });
 
-    $("#mobile-menu-programs").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=programs";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-3").offset().top - 100,
-            },
-            1000
-        );
-        hideMobileMenu();
-    });
-
     $("#mobile-menu-aboutme").click(function () {
         if (checkIfOnIndexPage() == false) {
             window.location.href = "index.html?scrollTo=aboutme";
@@ -352,19 +341,6 @@ $(document).ready(function () {
         $("html, body").animate(
             {
                 scrollTop: $(".content-box-2").offset().top - 100,
-            },
-            1000
-        );
-        hideMobileMenu();
-    });
-
-    $("#mobile-menu-challenges").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=challenges";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-7").offset().top - 100,
             },
             1000
         );
@@ -392,13 +368,21 @@ $(document).ready(function () {
 
     function hideMobileMenu() {
         $("#mobile-menu-container").animate({ left: -200 }, "slow");
-        // $("#mobile-menu-container").css("display", "none");
         $("#unfocused-div").css("display", "none");
-        // $(".menu-bar").css("background-color", "gainsboro");
         isMenuActive = false;
     }
 
-    //change this to check if NOT on index page so we can redirect to from a specific item as well
+    $(".checkout-close-btn").click(function () {
+        hideCart();
+    });
+
+    function hideCart() {
+        $(".checkout-menu").animate({ right: -340 }, "slow");
+        $("#unfocused-div").css("display", "none");
+        isMenuActive = false;
+    }
+
+    //change this to check if NOT on index page so we can redirect to from a specific item as well => what am i talking about here
     function checkIfOnIndexPage() {
         if (window.location.pathname == "/index.html") {
             return true;
@@ -426,26 +410,6 @@ $(document).ready(function () {
                         $("html, body").animate(
                             {
                                 scrollTop: $(".content-box-2").offset().top - 100,
-                            },
-                            1000
-                        );
-                    }
-                    break;
-                case "challenges":
-                    {
-                        $("html, body").animate(
-                            {
-                                scrollTop: $(".content-box-7").offset().top - 100,
-                            },
-                            1000
-                        );
-                    }
-                    break;
-                case "programs":
-                    {
-                        $("html, body").animate(
-                            {
-                                scrollTop: $(".content-box-3").offset().top - 100,
                             },
                             1000
                         );

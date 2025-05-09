@@ -27,7 +27,7 @@ input {
 select {
     cursor: pointer;
     width: fit-content;
-    min-width: 100px;
+    /* min-width: 100px; */
     padding: 10px;
     border: 1px solid rgb(203, 203, 203);
     border-radius: 3px;
@@ -704,6 +704,116 @@ a {
 .merch-sub {
     font-weight: 300;
     text-align: center;
+}
+.cart-amount {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    background-color: rgb(255, 0, 0);
+    padding: 3px;
+    padding-inline: 7px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    z-index: 4;
+}
+.cart-amount:hover {
+    cursor: pointer;
+}
+.checkout-menu {
+    background-color: #fbf6ee;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.checkout-items {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.checkout-item {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    transition: all linear .1s;
+    padding: 10px;
+    border-radius: 5px;
+}
+.checkout-item:hover {
+    background-color:#ebe7e0;
+    /* cursor: pointer; */
+}
+.checkout-item-title {
+    font-size: 18px;
+}
+.checkout-item-image {
+    height: 100px;
+}
+.checkout-item-details {
+    display: flex;
+    flex-direction: column;
+}
+.checkout-remove-item {
+    height: 30px;
+    width: 30px;
+    /* position: absolute; */
+    /* top: 0px; */
+    /* right: 10px; */
+    /* top: 50%; */
+    /* transform: translateY(-50%);
+    transition: all linear 0.1s; */
+    padding: 10px;
+    border-radius: 50px;
+    /* border: 1px solid gainsboro; */
+}
+.checkout-remove-item:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+.checkout-item-quantity-select-label {
+    font-weight: 400;
+}
+.checkout-item-quantity-select {
+    font-size: 14px;
+    width: fit-content;
+}
+.checkout-controller-container {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: end;
+    padding-bottom: 40px;
+    gap: 5px;
+}
+.checkout-close-btn, .checkout-checkout-btn {
+    background-color: rgb(132, 132, 132);
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    width: 100%;
+    transition: all linear .1s;
+    height: fit-content;
+}
+.checkout-close-btn {
+    background-color: transparent;
+    color: rgb(132, 132, 132);
+    border: 1px solid rgb(132, 132, 132);
+}
+.checkout-close-btn:hover, .checkout-checkout-btn:hover {
+    cursor: pointer;
+    opacity: .5;
 }
 @media (max-width: 1100px) {
     .nav-button-container {

@@ -39,7 +39,7 @@
                         <span class="menu-bar"></span>
                         <span class="menu-bar"></span>
                     </div>
-                    <div id="mobile-menu-container">
+                    <div id="mobile-menu-container" style="display: none;">
                         <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
                         <a class="mobile-menu-btn" id="mobile-menu-merchandise">PRODUCTS</a>
                         <a class="mobile-menu-btn" id="mobile-menu-challenges">ABOUT</a>
@@ -51,7 +51,17 @@
                 </div>
                 <div class="nav-icons-container">
                     <img src="images/search.png" class="nav-icon" />
-                    <img src="images/cart.png?vers=2" class="nav-icon" />
+                    <img src="images/cart.png?vers=2" class="nav-icon cart-icon" />
+                    <p class="cart-amount"></p>
+                </div>
+                <div class="checkout-menu" style="display: none;">
+                    <h2>Your Cart</h2>
+                    <div class="checkout-items">
+                    </div>
+                    <div class="checkout-controller-container">
+                        <button class="checkout-close-btn">Close</button>
+                        <button class="checkout-checkout-btn">Checkout</button>
+                    </div>
                 </div>
             </div>
             <div class="content">
@@ -104,7 +114,7 @@
                             <br />
                             <!-- <h3 style="color: rgb(148, 148, 148); font-weight: 300; line-height: 1.85;">I am a lifting coach based out of Chicago, Illinois</h3> -->
                             <br />
-                            <p style="line-height: 1.85; color: rgb(75, 75, 75); font-weight: 400; font-size: 16px; text-align: center;">
+                            <p style="line-height: 1.85; color: rgb(75, 75, 75); font-weight: 400; font-size: 16px; text-align: center">
                                 Hi, I'm Skyler! Originally from Illinois, I've made my way down to Houston, Texas, where I discovered a new passion that completely transformed my life—Pilates. From
                                 the very first class, I was hooked. Within weeks, I knew I wanted to become an instructor so I could share the same energy, joy, and empowerment that Pilates brought
                                 into my life.
@@ -127,7 +137,7 @@
                 <form class="content-box-4" style="padding: 40px" id="contact-form">
                     <h2 class="content-box-6-title">CONTACT ME</h2>
                     <br />
-                    <h3 style="max-width: 80%; font-weight: 400; font-size: 16px;">Feel free to send me a message if you have any questions about me or my products!</h3>
+                    <h3 style="max-width: 80%; font-weight: 400; font-size: 16px">Feel free to send me a message if you have any questions about me or my products!</h3>
                     <br /><br />
                     <div class="contact-wrapper">
                         <div class="contact-card">
@@ -164,6 +174,7 @@
                 </form>
             </div>
         </div>
+        <input id="cart" name="cart" value="[]" hidden disabled />
         <div class="footer">
             <div class="footer-details">
                 <a class="brand-logo-wrapper" href="https://www.instagram.com/thespoiledbunny" target="_blank">
@@ -184,5 +195,5 @@
         </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js?vers=8"></script>
+    <script src="script.js?vers=9"></script>
 </html>

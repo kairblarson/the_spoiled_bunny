@@ -12,7 +12,7 @@
         <script src="https://js.stripe.com/v3/"></script>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=1" />
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <title>The Spoiled Bunny</title>
+        <title>The Spoiled Bunny | Dirty Martini Grip Socks</title>
         <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
         <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
         <meta property="og:title" content="The Spoiled Bunny" />
@@ -52,59 +52,50 @@
                 <div class="nav-icons-container">
                     <img src="images/search.png" class="nav-icon" />
                     <img src="images/cart.png?vers=2" class="nav-icon" />
+                    <p class="cart-amount"></p>
                 </div>
             </div>
             <div class="content">
                 <div class="content-box-6">
-                    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 20px; margin-bottom: 50px; flex-wrap: wrap; margin-top: 150px; max-width: 800px; width: 90%;">
-                        <h2 class="content-box-6-title">GRIP SOCKS</h2>
-                        <p class="merch-sub">
-                            Built with combining style, comfort, and performance. They're made to support you through every movement—whether you're in a fitness class, at home, or on the go. Snug feel
-                            for added support, extra grips to prevent slipping, and thin seams to avoid toe irritation, these socks are made to perform and look amazing.
-                        </p>
-                    </div>
-                    <div class="content-box-6-container">
-                        <div class="content-box-6-merch princess-pink-btn">
-                            <img src="images/image4.png" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Princess Pilates Pink</p>
-                            <!-- <p class="merch-desc">Bright Pink sock with Black and Red embroidery and Red heart-shaped grips</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-hoodie-btn">$18.99</button> -->
-                        </div>
-                        <div class="content-box-6-merch dirty-martini-btn">
-                            <img src="images/IMG_0851.JPEG" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Dirty Martini</p>
-                            <!-- <p class="merch-desc">White sock with Dirty Martini and Red heart-shaped grips on the bottom</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">Buy Now</button> -->
-                        </div>
-                        <div class="content-box-6-merch">
-                            <img src="images/IMG_0809.JPEG" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Cherry Red</p>
-                            <!-- <p class="merch-desc">White sock with cherry all over with red heart-shaped grips on the bottom</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">Buy Now</button> -->
-                        </div>
-                        <div class="content-box-6-merch">
-                            <img src="images/IMG_0828.JPEG" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Bow Light Blue</p>
-                            <!-- <p class="merch-desc">White sock with Blue bows and blue heart-shaped grips on the bottom</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">Buy Now</button> -->
-                        </div>
-                        <div class="content-box-6-merch">
-                            <img src="images/image5.png" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Hot Girls Go To Pilates Strips White and Blue</p>
-                            <!-- <p class="merch-desc">White sock with Royal Blue heart-shaped grips, thick lines, and Black Lettering</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">Buy Now</button> -->
-                        </div>
-                        <div class="content-box-6-merch get-a-grip-btn">
-                            <img src="images/image6.png" class="merch-img" />
-                            <p class="merch-title">The Crew Grip Sock Get a Grip Blue</p>
-                            <!-- <p class="merch-desc">Electric blue sock with bright orange lettering and heart-shaped grips</p> -->
-                            <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">Buy Now</button> -->
+                    <div class="content-box-6-container" style="margin-top: 150px;">
+                        <div class="merch-container">
+                            <div class="merch-imgs-container">
+                                <img src="images/IMG_0851.JPEG" class="merch-page-img" id="selected-merch-image" />
+                                <div class="merch-other-imgs-container">
+                                    <!-- <img src="images/left.png" class="merch-arrow" id="merch-left-arrow" /> -->
+                                    <img src="images/IMG_0851.JPEG" class="merch-other-img selected-image" id="merch-img-1" />
+                                    <img src="images/IMG_0851.JPEG" class="merch-other-img" id="merch-img-2" />
+                                    <img src="images/IMG_0851.JPEG" class="merch-other-img" id="merch-img-3" />
+                                    <!-- <img src="images/right.png" class="merch-arrow" id="merch-right-arrow" /> -->
+                                </div>
+                            </div>
+                            <div class="merch-details-container">
+                                <p class="merch-details-title">The Crew Grip Sock Dirty Martini</p>
+                                <p class="merch-details-price">$18.99/each</p>
+                                <!-- <small>Quantity will be selected on checkout*</small> -->
+                                <!-- <div class="merch-select-container">
+                                    <label>Please select a size</label>
+                                    <select class="merch-select" id="merch-size-select">
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </div> -->
+                                <div class="merch-select-container">
+                                    <label>Please select a quantity</label>
+                                    <select class="merch-select" id="dirty-martini-quantity-select">
+                                        <option selected>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                                <button class="merch-details-buy-btn" onclick="addToCart()">Add To Cart</button>
+                            </div>
                         </div>
                     </div>
                     <br /><br />
@@ -134,4 +125,21 @@
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        //this will need to be added to every file
+        const cartObject = {
+            productName: "The Crew Grip Sock Dirty Martini",
+            productPrice: 18.99,
+            productQuantity: 1,
+            productImage: "images/IMG_0851.JPEG",
+            productID: 892779
+        }
+        $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
+        
+        function addToCart() {
+            addItemToCart({...cartObject, productQuantity: $('#dirty-martini-quantity-select').val()});
+            $(".cart-amount").show();
+            $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
+        }
+    </script>
 </html>
