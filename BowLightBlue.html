@@ -12,7 +12,7 @@
         <script src="https://js.stripe.com/v3/"></script>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=1" />
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <title>The Spoiled Bunny | Get a Grip Blue</title>
+        <title>The Spoiled Bunny | Bow Light Blue</title>
         <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
         <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
         <meta property="og:title" content="The Spoiled Bunny" />
@@ -24,6 +24,9 @@
     </head>
     <body>
         <div id="main">
+            <div class="message-modal">
+                <p class="message-modal-text">Item has been added to your cart!</p>
+            </div>
             <div class="navbar">
                 <div class="nav-button-container">
                     <button class="nav-button" id="nav-button-home">HOME</button>
@@ -65,20 +68,20 @@
                     <div class="content-box-6-container" style="margin-top: 150px">
                         <div class="merch-container">
                             <div class="merch-imgs-container">
-                                <img src="images/image6.png" class="merch-page-img" id="selected-merch-image" />
+                                <img src="images/IMG_0828.JPEG" class="merch-page-img" id="selected-merch-image" />
                                 <div class="merch-other-imgs-container">
-                                    <img src="images/image6.png" class="merch-other-img selected-image" id="merch-img-1" />
-                                    <img src="images/image6.png" class="merch-other-img" id="merch-img-2" />
-                                    <img src="images/image6.png" class="merch-other-img" id="merch-img-3" />
+                                    <img src="images/IMG_0828.JPEG" class="merch-other-img selected-image" id="merch-img-1" />
+                                    <img src="images/IMG_0828.JPEG" class="merch-other-img" id="merch-img-2" />
+                                    <img src="images/IMG_0828.JPEG" class="merch-other-img" id="merch-img-3" />
                                 </div>
                             </div>
                             <div class="merch-details-container">
-                                <p class="merch-details-title">The Crew Grip Sock Get a Grip Blue</p>
+                                <p class="merch-details-title">The Crew Grip Sock Bow Light Blue</p>
                                 <p class="merch-details-price">$18.99/each</p>
                                 <div class="merch-select-container">
                                     <label>Please select a quantity</label>
-                                    <select class="merch-select" id="get-a-grip-quantity-select">
-                                        <option>1</option>
+                                    <select class="merch-select" id="bow-light-blue-quantity-select">
+                                        <option selected>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -117,17 +120,17 @@
     <script src="script.js"></script>
     <script>
         const cartObject = {
-            productName: "The Crew Grip Sock Get a Grip Blue",
+            productName: "The Crew Grip Sock Bow Light Blue",
             productPrice: 18.99,
             productQuantity: 1,
-            productImage: "images/image6.png",
-            productID: 8973976,
-            productFile: "GetAGrip.html",
+            productImage: "images/IMG_0828.JPEG",
+            productID: 97836563,
+            productFile: "BowLightBlue.html",
         };
         $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
 
         function addToCart() {
-            addItemToCart({ ...cartObject, productQuantity: $("#get-a-grip-quantity-select").val() });
+            addItemToCart({ ...cartObject, productQuantity: $("#bow-light-blue-quantity-select").val() });
             $(".cart-amount").show();
             $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
         }

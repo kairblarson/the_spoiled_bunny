@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 p,
 h1,
@@ -246,7 +247,7 @@ select {
     height: 600px;
     max-width: 600px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    /* border-radius: 10px; */
+    border-radius: 5px;
     object-fit: cover;
 }
 .content-box-2-wrapper {
@@ -630,13 +631,13 @@ a {
 .merch-img {
     height: 400px;
     width: 300px;
-    /* border-radius: 10px; */
+    border-radius: 5px;
     object-fit: cover;
 }
 .merch-page-img {
     height: 400px;
     border: 1px solid gainsboro;
-    /* border-radius: 10px; */
+    border-radius: 5px;
     object-fit: cover;
     width: 400px;
 }
@@ -652,11 +653,32 @@ a {
     width: 75px;
     height: 75px;
     object-fit: cover;
-    /* border-radius: 10px; */
+    border-radius: 5px;
 }
-/* .merch-buy-btn {
-
-} */
+.message-modal {
+    background-color: rgb(80, 194, 80);
+    /* border: 1px solid white; */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 20px;
+    position: fixed;
+    bottom: 5px;
+    right: 0;
+    transform: translateX(100%); /* Start off-screen to the left */
+    transition: transform 0.5s ease;
+    z-index: 10;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.message-modal-text {
+    color: white;
+}
+.message-modal.show {
+    transform: translateX(0); /* Slide fully into view */
+}
 .footer {
     display: flex;
     align-items: center;
@@ -746,12 +768,12 @@ a {
     display: flex;
     gap: 10px;
     width: 100%;
-    transition: all linear .1s;
+    transition: all linear 0.1s;
     padding: 10px;
     border-radius: 5px;
 }
 .checkout-item:hover {
-    background-color:#ebe7e0;
+    background-color: #ebe7e0;
     /* cursor: pointer; */
 }
 .checkout-item-title {
@@ -759,6 +781,8 @@ a {
 }
 .checkout-item-image {
     height: 100px;
+    width: 85px;
+    object-fit: cover;
 }
 .checkout-item-details {
     display: flex;
@@ -778,7 +802,7 @@ a {
     /* border: 1px solid gainsboro; */
 }
 .checkout-remove-item:hover {
-    opacity: .5;
+    opacity: 0.5;
     cursor: pointer;
 }
 .checkout-item-quantity-select-label {
@@ -797,13 +821,14 @@ a {
     padding-bottom: 40px;
     gap: 5px;
 }
-.checkout-close-btn, .checkout-checkout-btn {
+.checkout-close-btn,
+.checkout-checkout-btn {
     background-color: rgb(132, 132, 132);
     padding: 10px;
     border-radius: 5px;
     color: #ffffff;
     width: 100%;
-    transition: all linear .1s;
+    transition: all linear 0.1s;
     height: fit-content;
 }
 .checkout-close-btn {
@@ -811,9 +836,10 @@ a {
     color: rgb(132, 132, 132);
     border: 1px solid rgb(132, 132, 132);
 }
-.checkout-close-btn:hover, .checkout-checkout-btn:hover {
+.checkout-close-btn:hover,
+.checkout-checkout-btn:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 @media (max-width: 1100px) {
     .nav-button-container {
@@ -921,7 +947,6 @@ a {
         padding: 0px;
     }
     .content-box-6-merch {
-        padding: 0px;
         align-items: center;
     }
     .content-box-6 {
@@ -1054,6 +1079,7 @@ a {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        max-width: 500px;
     }
     .merch-page-img {
         width: 100%;
@@ -1068,6 +1094,9 @@ a {
     }
     .content-box-7 {
         /* padding-inline: 0px; */
+    }
+    .merch-other-imgs-container {
+        max-width: 100%;
     }
 }
 

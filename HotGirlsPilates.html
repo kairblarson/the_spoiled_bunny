@@ -12,7 +12,7 @@
         <script src="https://js.stripe.com/v3/"></script>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=1" />
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <title>The Spoiled Bunny</title>
+        <title>The Spoiled Bunny | Hot Girls go to Pilates</title>
         <meta name="description" content="Get personalized fitness, nutrition, and coaching services to achieve your health goals. Join us for expert guidance and support." />
         <meta name="keywords" content="fitness, nutrition, coaching, personal training, health, wellness, diet plans, workout routines" />
         <meta property="og:title" content="The Spoiled Bunny" />
@@ -24,10 +24,10 @@
     </head>
     <body>
         <div id="main">
-            <!-- <div class="modal-container"><div class="modal"></div></div> -->
+            <div class="message-modal">
+                <p class="message-modal-text">Item has been added to your cart!</p>
+            </div>
             <div class="navbar">
-                <!-- <div class="nav-logo-wrapper"> -->
-                <!-- </div> -->
                 <div class="nav-button-container">
                     <button class="nav-button" id="nav-button-home">HOME</button>
                     <a class="nav-button" id="nav-button-merchandise">PRODUCTS</a>
@@ -51,62 +51,51 @@
                 </div>
                 <div class="nav-icons-container">
                     <img src="images/search.png" class="nav-icon" />
-                    <img src="images/cart.png?vers=2" class="nav-icon" />
+                    <img src="images/cart.png?vers=2" class="nav-icon cart-icon" />
+                    <p class="cart-amount"></p>
+                </div>
+                <div class="checkout-menu" style="display: none">
+                    <h2>Your Cart</h2>
+                    <div class="checkout-items"></div>
+                    <div class="checkout-controller-container">
+                        <button class="checkout-close-btn">Close</button>
+                        <button class="checkout-checkout-btn">Checkout</button>
+                    </div>
                 </div>
             </div>
             <div class="content">
                 <div class="content-box-6">
-                    <div style="display: flex; justify-content: center; align-items: center; flex-direction: row; gap: 20px; margin-bottom: 50px; flex-wrap: wrap;">
-                        <p class="merch-name">JAYS</p>
-                        <h2 class="content-box-6-title">BASEBALL CAP</h2>
-                    </div>
-                    <div class="content-box-6-container">
+                    <div class="content-box-6-container" style="margin-top: 150px">
                         <div class="merch-container">
                             <div class="merch-imgs-container">
-                                <img src="images/img13.jpg" class="merch-page-img" id="selected-merch-image" />
+                                <img src="images/image5.png" class="merch-page-img" id="selected-merch-image" />
                                 <div class="merch-other-imgs-container">
-                                    <img src="images/left.png" class="merch-arrow" id="merch-left-arrow" />
-                                    <img src="images/img13.jpg" class="merch-other-img selected-image" id="merch-img-1" />
-                                    <img src="images/hat2.jpg" class="merch-other-img" id="merch-img-2" />
-                                    <img src="images/hat2.jpg" class="merch-other-img" id="merch-img-3" />
-                                    <!-- <img src="images/img5.jpg" class="merch-other-img" id="hoodie-img-5" /> -->
-                                    <img src="images/right.png" class="merch-arrow" id="merch-right-arrow" />
+                                    <img src="images/image5.png" class="merch-other-img selected-image" id="merch-img-1" />
+                                    <img src="images/image5.png" class="merch-other-img" id="merch-img-2" />
+                                    <img src="images/image5.png" class="merch-other-img" id="merch-img-3" />
                                 </div>
                             </div>
                             <div class="merch-details-container">
-                                <p class="merch-details-title">Train with Jay Baseball Cap</p>
-                                <p class="merch-details-price">$30.00/each</p>
-                                <small>Quantity will be selected on checkout*</small>
-                                <!-- <div class="merch-select-container">
-                                    <label>Please select a size</label>
-                                    <select class="merch-select" id="merch-size-select">
-                                        <option>XS</option>
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                    </select>
-                                </div>
+                                <p class="merch-details-title">The Crew Grip Sock Hot Girls go to Pilates</p>
+                                <p class="merch-details-price">$18.99/each</p>
                                 <div class="merch-select-container">
                                     <label>Please select a quantity</label>
-                                    <select class="merch-select" id="merch-quantity-select">
-                                        <option>1</option>
+                                    <select class="merch-select" id="hot-girls-pilates-quantity-select">
+                                        <option selected>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
                                         <option>6</option>
                                     </select>
-                                </div> -->
-                                <button class="merch-details-buy-btn" id="buy-hat-btn">Proceed to checkout</button>
+                                </div>
+                                <button class="merch-details-buy-btn" onclick="addToCart()">Add To Cart</button>
                             </div>
                         </div>
                     </div>
                     <br /><br />
                 </div>
             </div>
-            <!-- Your content here -->
-            <!-- <button id="checkout-button">Checkout</button> -->
         </div>
         <div class="footer">
             <div class="footer-details">
@@ -129,4 +118,21 @@
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        const cartObject = {
+            productName: "The Crew Grip Sock Hot Girls go to Pilates",
+            productPrice: 18.99,
+            productQuantity: 1,
+            productImage: "images/image5.png",
+            productID: 2375429,
+            productFile: "HotGirlsPilates.html",
+        };
+        $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
+
+        function addToCart() {
+            addItemToCart({ ...cartObject, productQuantity: $("#hot-girls-pilates-quantity-select").val() });
+            $(".cart-amount").show();
+            $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
+        }
+    </script>
 </html>

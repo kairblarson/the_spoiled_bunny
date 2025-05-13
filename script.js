@@ -4,6 +4,7 @@ const exampleCartItem = {
     productQuantity: 1,
     productImage: "image/src.jpg",
     productID: 12345, //if applicable (i imagine it is)
+    productFile: "",
 };
 let cart = [];
 
@@ -15,24 +16,76 @@ getCartFromSession();
 
 function getCartFromSession() {
     const cartSession = JSON.parse(sessionStorage.getItem("cart"));
-    console.log(cartSession);
+    console.log("CART SESSION: " + cartSession);
     if (cartSession) {
         cart = cartSession;
-        $(".cart-amount").html(cartSession.length > 0 ? cartSession.length : $(".cart-amount").hide());
         $(".cart-amount").show();
+        $(".cart-amount").html(cartSession.length > 0 ? cartSession.length : $(".cart-amount").hide());
+    } else {
+        $(".cart-amount").hide();
     }
+}
+
+function toggleMessageModal() {
+    const modal = $(".message-modal");
+
+    modal.addClass("show"); // Slide in
+
+    setTimeout(() => {
+        modal.removeClass("show"); // Slide out after 3s
+    }, 3000);
 }
 
 function addItemToCart(item) {
     console.log("adding to cart: " + JSON.stringify(item));
     cart.push(item);
     sessionStorage.setItem("cart", JSON.stringify(cart));
-    $("#cart").val(cart); //might be able to deprecate this then
+    toggleMessageModal();
     //add a message that says that the item has been added to the cart
 }
 
-function removeFromCart(item) {
-    //remove it here
+$('body').on('click', '.checkout-item', function (e) {
+    console.log("here")
+    const file = $(this).data("file");
+    window.location.href = file;
+});
+
+function removeFromCart(event, item) {
+    event.stopPropagation();
+    console.log("removing from cart: " + JSON.stringify(item));
+    const updatedCart = cart.filter((product) => product.productID != item.productID);
+    cart = updatedCart;
+    sessionStorage.setItem("cart", JSON.stringify(updatedCart));
+    $(".checkout-items").empty();
+    cart.forEach((item) => {
+        $(".checkout-items").append(`
+            <div class='checkout-item' data-file='${item.productFile}'>
+                <img src='${item.productImage}' class='checkout-item-image'/>
+                <div class='checkout-item-details'>
+                    <p class='checkout-item-title'>${item.productName}</p>
+                    <div style='display: flex; flex-direction: row; gap: 10px; align-items: center;'>
+                        <label class='checkout-item-select-label'>Quantity: </label>
+                        <select class='checkout-item-quantity-select'>
+                            ${[...Array(10)].map((_, i) => `<option ${item.productQuantity == i + 1 ? "selected" : ""}>${i + 1}</option>`).join("")}
+                        </select>
+                        <img src='images/trash.png' class='checkout-remove-item'
+                            onClick='removeFromCart(event, ${JSON.stringify(item)})' />     
+                    </div>
+                </div>  
+            </div>
+        `);
+    });
+
+    if (cart.length == 0) {
+        $(".checkout-items").append(`<p style='font-weight: 400'>Your cart is empty</p>`);
+        $(".checkout-checkout-btn").prop("disabled", true);
+    }
+
+    $(".checkout-menu").animate({ right: "0px" }, "slow");
+    $(".checkout-menu").css("display", "flex");
+    $("#unfocused-div").css("display", "block");
+    isCartActive = true;
+    getCartFromSession();
 }
 
 function submitOrder() {
@@ -74,6 +127,8 @@ $(document).ready(function () {
             }
         );
     });
+
+    // $(".search-icon").click(toggleMessageModal);
 
     function performFormValidation() {
         const nameField = $("#from_name");
@@ -143,6 +198,18 @@ $(document).ready(function () {
     $(".dirty-martini-btn").on("click", function () {
         window.location.href = "DirtyMartini.html";
     });
+
+    $(".cherry-red-btn").on("click", function () {
+        window.location.href = "CherryRed.html";
+    });
+
+    $(".bow-light-btn").on("click", function () {
+        window.location.href = "BowLightBlue.html";
+    });
+
+    $(".hot-girls-pilates-btn").on("click", function () {
+        window.location.href = "HotGirlsPilates.html";
+    });
     //
 
     $(".menu-container").click(function () {
@@ -179,14 +246,6 @@ $(document).ready(function () {
         $(".content-gif-overlay").height(heightOfVideo);
     });
 
-    $(".view-hoodie-btn").click(function () {
-        window.location.href = "hoodie.html";
-    });
-
-    $(".view-cap-btn").click(function () {
-        window.location.href = "baseballcap.html";
-    });
-
     $("#menu-container").click(function () {
         if (isMenuActive) {
             $("#mobile-menu-container").animate({ left: -200 }, "slow");
@@ -201,37 +260,46 @@ $(document).ready(function () {
         }
     });
 
+    //get this working
+    window.toProductPage = function (file) {
+        window.location.href = file;
+    };
+
     //now actually dynamically fill cart here
-    $(".cart-icon").click(function () {
-        ////need to adjust spacing on some things
-        //make the trash button actually do something
+    $(".cart-icon, .cart-amount").click(function () {
+        document.body.style.overflowY = "hidden";
         $(".checkout-items").empty();
         cart.forEach((item) => {
             $(".checkout-items").append(`
-                <div class='checkout-item'>
+                <div class='checkout-item' data-file='${item.productFile}'>
                     <img src='${item.productImage}' class='checkout-item-image' />
                     <div class='checkout-item-details'>
                         <p class='checkout-item-title'>${item.productName}</p>
                         <div style='display: flex; flex-direction: row; gap: 10px; align-items: center;'>
                             <label for='checkout-item-quantity-select' class='checkout-item-select-label'>Quantity: </label>
                             <select class='checkout-item-quantity-select'>
-                                <option ${item.productQuantity == 1 ? 'selected' : null}>1</option>
-                                <option ${item.productQuantity == 2 ? 'selected' : null}>2</option>
-                                <option ${item.productQuantity == 3 ? 'selected' : null}>3</option>
-                                <option ${item.productQuantity == 4 ? 'selected' : null}>4</option>
-                                <option ${item.productQuantity == 5 ? 'selected' : null}>5</option>
-                                <option ${item.productQuantity == 6 ? 'selected' : null}>6</option>
-                                <option ${item.productQuantity == 7 ? 'selected' : null}>7</option>
-                                <option ${item.productQuantity == 8 ? 'selected' : null}>8</option>
-                                <option ${item.productQuantity == 9 ? 'selected' : null}>9</option>
-                                <option ${item.productQuantity == 10 ? 'selected' : null}>10</option>
+                                <option ${item.productQuantity == 1 ? "selected" : null}>1</option>
+                                <option ${item.productQuantity == 2 ? "selected" : null}>2</option>
+                                <option ${item.productQuantity == 3 ? "selected" : null}>3</option>
+                                <option ${item.productQuantity == 4 ? "selected" : null}>4</option>
+                                <option ${item.productQuantity == 5 ? "selected" : null}>5</option>
+                                <option ${item.productQuantity == 6 ? "selected" : null}>6</option>
+                                <option ${item.productQuantity == 7 ? "selected" : null}>7</option>
+                                <option ${item.productQuantity == 8 ? "selected" : null}>8</option>
+                                <option ${item.productQuantity == 9 ? "selected" : null}>9</option>
+                                <option ${item.productQuantity == 10 ? "selected" : null}>10</option>
                             </select>
-                            <img src='images/trash.png' class='checkout-remove-item' />     
+                            <img src='images/trash.png' class='checkout-remove-item' onClick='removeFromCart(event, ${JSON.stringify(item)})'/>     
                         </div>
                     </div>  
                 </div>
             `);
         });
+
+        if (cart.length == 0) {
+            $(".checkout-items").append(`<p style='font-weight: 400'>Your cart is empty</p>`);
+            $(".checkout-checkout-btn").prop("disabled", true);
+        }
 
         $(".checkout-menu").animate({ right: "0px" }, "slow");
         $(".checkout-menu").css("display", "flex");
@@ -241,6 +309,8 @@ $(document).ready(function () {
 
     $("#unfocused-div").click(function () {
         //hide the mobile menu
+        document.body.style.overflowY = "auto";
+
         if (isMenuActive && !isCartActive) {
             $("#mobile-menu-container").animate({ left: -200 }, "slow");
             $("#unfocused-div").css("display", "none");
@@ -319,6 +389,10 @@ $(document).ready(function () {
     $("#nav-button-merchandise").click(function () {
         window.location.href = "merchandise.html";
     });
+
+    $("#main-products-btn").click(function () {
+        window.location.href = "merchandise.html";
+    });
     //
 
     //mobile nav buttons
@@ -374,6 +448,7 @@ $(document).ready(function () {
     }
 
     $(".checkout-close-btn").click(function () {
+        document.body.style.overflowY = "auto";
         hideCart();
     });
 

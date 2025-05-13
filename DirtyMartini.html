@@ -24,10 +24,10 @@
     </head>
     <body>
         <div id="main">
-            <!-- <div class="modal-container"><div class="modal"></div></div> -->
+            <div class="message-modal">
+                <p class="message-modal-text">Item has been added to your cart!</p>
+            </div>
             <div class="navbar">
-                <!-- <div class="nav-logo-wrapper"> -->
-                <!-- </div> -->
                 <div class="nav-button-container">
                     <button class="nav-button" id="nav-button-home">HOME</button>
                     <a class="nav-button" id="nav-button-merchandise">PRODUCTS</a>
@@ -51,38 +51,33 @@
                 </div>
                 <div class="nav-icons-container">
                     <img src="images/search.png" class="nav-icon" />
-                    <img src="images/cart.png?vers=2" class="nav-icon" />
+                    <img src="images/cart.png?vers=2" class="nav-icon cart-icon" />
                     <p class="cart-amount"></p>
+                </div>
+                <div class="checkout-menu" style="display: none">
+                    <h2>Your Cart</h2>
+                    <div class="checkout-items"></div>
+                    <div class="checkout-controller-container">
+                        <button class="checkout-close-btn">Close</button>
+                        <button class="checkout-checkout-btn">Checkout</button>
+                    </div>
                 </div>
             </div>
             <div class="content">
                 <div class="content-box-6">
-                    <div class="content-box-6-container" style="margin-top: 150px;">
+                    <div class="content-box-6-container" style="margin-top: 150px">
                         <div class="merch-container">
                             <div class="merch-imgs-container">
                                 <img src="images/IMG_0851.JPEG" class="merch-page-img" id="selected-merch-image" />
                                 <div class="merch-other-imgs-container">
-                                    <!-- <img src="images/left.png" class="merch-arrow" id="merch-left-arrow" /> -->
                                     <img src="images/IMG_0851.JPEG" class="merch-other-img selected-image" id="merch-img-1" />
                                     <img src="images/IMG_0851.JPEG" class="merch-other-img" id="merch-img-2" />
                                     <img src="images/IMG_0851.JPEG" class="merch-other-img" id="merch-img-3" />
-                                    <!-- <img src="images/right.png" class="merch-arrow" id="merch-right-arrow" /> -->
                                 </div>
                             </div>
                             <div class="merch-details-container">
                                 <p class="merch-details-title">The Crew Grip Sock Dirty Martini</p>
                                 <p class="merch-details-price">$18.99/each</p>
-                                <!-- <small>Quantity will be selected on checkout*</small> -->
-                                <!-- <div class="merch-select-container">
-                                    <label>Please select a size</label>
-                                    <select class="merch-select" id="merch-size-select">
-                                        <option>XS</option>
-                                        <option>S</option>
-                                        <option>M</option>
-                                        <option>L</option>
-                                        <option>XL</option>
-                                    </select>
-                                </div> -->
                                 <div class="merch-select-container">
                                     <label>Please select a quantity</label>
                                     <select class="merch-select" id="dirty-martini-quantity-select">
@@ -101,8 +96,6 @@
                     <br /><br />
                 </div>
             </div>
-            <!-- Your content here -->
-            <!-- <button id="checkout-button">Checkout</button> -->
         </div>
         <div class="footer">
             <div class="footer-details">
@@ -132,12 +125,13 @@
             productPrice: 18.99,
             productQuantity: 1,
             productImage: "images/IMG_0851.JPEG",
-            productID: 892779
-        }
+            productID: 892779,
+            productFile: "DirtyMartini.html",
+        };
         $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
-        
+
         function addToCart() {
-            addItemToCart({...cartObject, productQuantity: $('#dirty-martini-quantity-select').val()});
+            addItemToCart({ ...cartObject, productQuantity: $("#dirty-martini-quantity-select").val() });
             $(".cart-amount").show();
             $(".cart-amount").html(cart.length > 0 ? cart.length : $(".cart-amount").hide());
         }

@@ -39,7 +39,7 @@
                         <span class="menu-bar"></span>
                         <span class="menu-bar"></span>
                     </div>
-                    <div id="mobile-menu-container" style="display: none;">
+                    <div id="mobile-menu-container" style="display: none">
                         <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
                         <a class="mobile-menu-btn" id="mobile-menu-merchandise">PRODUCTS</a>
                         <a class="mobile-menu-btn" id="mobile-menu-challenges">ABOUT</a>
@@ -50,14 +50,13 @@
                     <img src="images/official-logo.jpg" class="nav-logo" />
                 </div>
                 <div class="nav-icons-container">
-                    <img src="images/search.png" class="nav-icon" />
+                    <img src="images/search.png" class="nav-icon search-icon" />
                     <img src="images/cart.png?vers=2" class="nav-icon cart-icon" />
                     <p class="cart-amount"></p>
                 </div>
-                <div class="checkout-menu" style="display: none;">
+                <div class="checkout-menu" style="display: none">
                     <h2>Your Cart</h2>
-                    <div class="checkout-items">
-                    </div>
+                    <div class="checkout-items"></div>
                     <div class="checkout-controller-container">
                         <button class="checkout-close-btn">Close</button>
                         <button class="checkout-checkout-btn">Checkout</button>
@@ -65,11 +64,7 @@
                 </div>
             </div>
             <div class="content">
-                <!-- <video loop autoplay muted playsinline id="content-video">
-                    <source src="images/vid1.mov" />
-                </video> -->
                 <img src="images/background.jpg" id="content-video" />
-                <!-- <img src="images/vid1.mov" class="content-main-gif" /> -->
                 <div class="content-gif-overlay">
                     <div class="content-overlay-container">
                         <h1 class="content-name">THE SPOILED BUNNY</h1>
@@ -78,41 +73,33 @@
                         <h2 class="content-subheader">YOUR ONLY REGRET? NOT BUYING SOONER</h2>
                         <br />
                         <div class="content-buttons-container">
-                            <button class="content-buttons" id="content-programs-btn">PRODUCTS</button>
+                            <button class="content-buttons" id="main-products-btn">PRODUCTS</button>
                             <button class="content-buttons" style="background-color: transparent; color: white; border: 1px solid white" id="content-contactme-btn">CONTACT ME</button>
                         </div>
                     </div>
                 </div>
                 <div class="content-box-6" style="padding: 40px">
-                    <!-- <p class="merch-name">THE SPOILED BUNNY</p> -->
                     <h2 class="content-box-6-title" style="margin-bottom: 50px">PRODUCTS</h2>
                     <div class="content-box-6-container">
                         <div class="content-box-6-merch princess-pink-btn">
                             <img src="images/image2.png" class="merch-img" />
                             <p class="merch-title">The Pink Princess Pilates pair</p>
-                            <!-- <p class="merch-desc">Bright Pink sock with Black and Red embroidery and Red heart-shaped grips</p> -->
                             <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-hoodie-btn">View</button> -->
                         </div>
                         <div class="content-box-6-merch dirty-martini-btn">
                             <img src="images/IMG_0851.JPEG" class="merch-img" />
                             <p class="merch-title">The dirty Martini Pair</p>
-                            <!-- <p class="merch-desc">White sock with Dirty Martini and Red heart-shaped grips on the bottom</p> -->
                             <p class="merch-price">$18.99</p>
-                            <!-- <button class="merch-buy-btn view-cap-btn">View</button> -->
                         </div>
                     </div>
                     <br /><br />
                     <a class="goto-merch-btn" href="merchandise.html">SEE MORE <img src="images/right-arrow.png" class="goto-arrow" /></a>
-                    <!-- <div class="line-break" style="margin-top: 50px"></div> -->
                 </div>
                 <div class="content-box-2">
                     <div style="display: flex; gap: 50px; padding: 40px; max-width: 100%; justify-content: space-around" class="content-box-2-wrapper">
-                        <!-- <img src="images/about-me-img.jpeg" class="content-box-2-img" /> -->
                         <div style="display: flex; flex-direction: column; max-width: 800px" class="content-box-2-text">
                             <h2 class="content-box-6-title">ABOUT US</h2>
                             <br />
-                            <!-- <h3 style="color: rgb(148, 148, 148); font-weight: 300; line-height: 1.85;">I am a lifting coach based out of Chicago, Illinois</h3> -->
                             <br />
                             <p style="line-height: 1.85; color: rgb(75, 75, 75); font-weight: 400; font-size: 16px; text-align: center">
                                 Hi, I'm Skyler! Originally from Illinois, I've made my way down to Houston, Texas, where I discovered a new passion that completely transformed my life—Pilates. From
@@ -133,7 +120,6 @@
                     </div>
                     <div class="line-break"></div>
                 </div>
-                <!-- <div class="line-break"></div> -->
                 <form class="content-box-4" style="padding: 40px" id="contact-form">
                     <h2 class="content-box-6-title">CONTACT ME</h2>
                     <br />
@@ -166,15 +152,11 @@
                                 <img src="images/location-icon.png" class="brand-logos" />
                                 <p>Houston, TX.</p>
                             </a>
-                            <!-- <div>
-                    <img src="images/insta-logo.png" class="brand-logos"/>
-                  </div> -->
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <input id="cart" name="cart" value="[]" hidden disabled />
         <div class="footer">
             <div class="footer-details">
                 <a class="brand-logo-wrapper" href="https://www.instagram.com/thespoiledbunny" target="_blank">
