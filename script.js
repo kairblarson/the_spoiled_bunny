@@ -41,11 +41,9 @@ function addItemToCart(item) {
     cart.push(item);
     sessionStorage.setItem("cart", JSON.stringify(cart));
     toggleMessageModal();
-    //add a message that says that the item has been added to the cart
 }
 
 $("body").on("click", ".checkout-item", function (e) {
-    console.log("here");
     const file = $(this).data("file");
     window.location.href = file;
 });
@@ -90,7 +88,24 @@ function removeFromCart(event, item) {
 
 function submitOrder() {
     //call serverless function here to generate checkout session i think
-    console.log("CART: " + JSON.stringify(cart));
+    console.log("Submitting order...: " + JSON.stringify(cart));
+    fetch("https://spoiled-bunny-73kp3yk1e-kai-larsons-projects.vercel.app/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            line_items: [
+                { price: "price_123", quantity: 2 },
+                { price: "price_456", quantity: 1 },
+            ],
+        }),
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("RES: "+res);
+            // window.location.href = data.url; // redirect to Stripe Checkout
+        });
 }
 
 $(document).ready(function () {
@@ -98,6 +113,8 @@ $(document).ready(function () {
     let isCartActive = false;
 
     $(".loader").hide();
+
+    $(".checkout-checkout-btn").click(submitOrder);
 
     //need to do some form validation and add a loading modal or something
     $("#contact-form").on("submit", function (event) {
@@ -155,6 +172,13 @@ $(document).ready(function () {
 
         return true;
     }
+
+    $(".merch-other-img").click(function () {
+        const prevSelectedImageNode = $(".selected-image");
+        prevSelectedImageNode.removeClass("selected-image");
+        $(this).addClass("selected-image");
+        $("#selected-merch-image").attr("src", $(this).attr("src"));
+    });
 
     $("#merch-right-arrow").click(function () {
         const selectedImage = $(".selected-image");
@@ -241,7 +265,6 @@ $(document).ready(function () {
     });
 
     $(window).resize(function () {
-        // console.log("Window resized to: " + $(window).width() + "x" + $(window).height());
         const heightOfVideo = $("#content-video").height();
         $(".content-gif-overlay").height(heightOfVideo);
     });
@@ -441,7 +464,6 @@ $(document).ready(function () {
         isCartActive = false;
     }
 
-    //change this to check if NOT on index page so we can redirect to from a specific item as well => what am i talking about here
     function checkIfOnIndexPage() {
         if (window.location.pathname == "/index.html") {
             return true;
@@ -462,6 +484,10 @@ $(document).ready(function () {
                             },
                             1000
                         );
+
+                        let url = new URL(window.location.href);
+                        url.searchParams.delete("scrollTo");
+                        window.history.replaceState({}, "", url);
                     }
                     break;
                 case "contactme":
@@ -472,6 +498,10 @@ $(document).ready(function () {
                             },
                             1000
                         );
+
+                        let url = new URL(window.location.href);
+                        url.searchParams.delete("scrollTo");
+                        window.history.replaceState({}, "", url);
                     }
                     break;
             }

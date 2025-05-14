@@ -72,6 +72,7 @@ select {
 }
 .nav-icon:hover {
     cursor: pointer;
+    opacity: .5;
 }
 .nav-icons-container {
     width: 100%;
@@ -153,6 +154,9 @@ select {
 .merch-details-price {
     font-size: 25px;
     font-weight: 300;
+}
+.merch-details-desc {
+    font-weight: 400;
 }
 .merch-name {
     color: rgb(46, 46, 46);
@@ -320,7 +324,7 @@ li {
 }
 #menu-container:hover {
     cursor: pointer;
-    scale: 1.05;
+    opacity: .5;
 }
 #mobile-menu-container {
     background-color: #fbf6ee;
@@ -334,6 +338,7 @@ li {
     gap: 30px;
     height: 100vh;
     z-index: 12;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     /* display: none; */
 }
 #menu-bar {
@@ -385,11 +390,11 @@ li {
     border: 1px solid #fbf6ee;
     color: rgb(46, 46, 46);
     border-radius: 5px;
+    transition: all linear 0.1s;
 }
 .content-buttons:hover {
     background-color: rgb(245, 147, 195) !important;
     background-color: rgb(245, 147, 195) !important;
-    transition: all linear 0.1s;
     cursor: pointer;
     color: rgb(46, 46, 46) !important;
 }
@@ -407,6 +412,7 @@ p {
     color: #fbf6ee;
     font-weight: bold;
     width: 100%;
+    transition: all linear 0.1s;
 }
 .merch-details-buy-btn,
 .merch-buy-btn,
@@ -421,6 +427,7 @@ p {
     font-weight: 500;
     width: 100%;
     font-size: 18px;
+    transition: all linear 0.1s;
     /* border: 1px solid rgb(255, 255, 255); */
 }
 .submit-trial-btn {
@@ -663,6 +670,11 @@ a {
     height: 75px;
     object-fit: cover;
     border-radius: 5px;
+    transition: all linear .1s;
+}
+.merch-other-img:hover {
+    cursor: pointer;
+    opacity: .5;
 }
 .message-modal {
     background-color: rgb(80, 194, 80);
@@ -870,9 +882,22 @@ a {
     opacity: 0.5;
 }
 #get-to-know-btn {
+    background-color: #fbf6ee;
+    padding-inline: 40px;
+    padding-block: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #fbf6ee;
+    color: rgb(46, 46, 46);
+    border-radius: 5px;
+    transition: all linear 0.1s;
     background-color: #393939;
     color:#ffffff;
     width: fit-content;
+}
+#get-to-know-btn:hover {
+    opacity: .5;
+    cursor: pointer;
 }
 @media (max-width: 1100px) {
     .nav-button-container {
