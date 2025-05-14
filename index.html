@@ -30,7 +30,7 @@
                 <!-- </div> -->
                 <div class="nav-button-container">
                     <button class="nav-button" id="nav-button-home">HOME</button>
-                    <a class="nav-button" id="nav-button-merchandise">PRODUCTS</a>
+                    <a class="nav-button" id="nav-button-merchandise">SHOP ALL</a>
                     <!-- <button class="nav-button" id="nav-button-about">ABOUT</button> -->
                     <button class="nav-button" id="nav-button-contactme">CONTACT ME</button>
                     <div id="unfocused-div"></div>
@@ -41,7 +41,7 @@
                     </div>
                     <div id="mobile-menu-container" style="display: none">
                         <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
-                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">PRODUCTS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">SHOP ALL</a>
                         <!-- <a class="mobile-menu-btn" id="mobile-menu-about">ABOUT</a> -->
                         <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
                     </div>
@@ -73,13 +73,12 @@
                         <h2 class="content-subheader">YOUR ONLY REGRET? NOT BUYING SOONER</h2>
                         <br />
                         <div class="content-buttons-container">
-                            <button class="content-buttons" id="main-products-btn">PRODUCTS</button>
-                            <button class="content-buttons" style="background-color: transparent; color: white; border: 1px solid white" id="content-contactme-btn">CONTACT ME</button>
+                            <button class="content-buttons" id="main-products-btn">SHOP THE COLLECTION</button>
                         </div>
                     </div>
                 </div>
-                <div class="content-box-6" style="padding: 40px">
-                    <h2 class="content-box-6-title" style="margin-bottom: 50px">PRODUCTS</h2>
+                <div class="content-box-6">
+                    <h2 class="content-box-6-title" style="margin-bottom: 50px">SHOP ALL</h2>
                     <div class="content-box-6-container">
                         <div class="content-box-6-merch princess-pink-btn">
                             <img src="images/image2.png" class="merch-img" />
@@ -95,7 +94,24 @@
                     <br /><br />
                     <a class="goto-merch-btn" href="merchandise.html">SEE MORE <img src="images/right-arrow.png" class="goto-arrow" /></a>
                 </div>
-                <form class="content-box-4" style="padding: 40px" id="contact-form">
+                <div class="content-box-2">
+                    <div style="display: flex; gap: 50px; padding: 40px; max-width: 100%; justify-content: space-around" class="content-box-2-wrapper">
+                        <div style="display: flex; flex-direction: column; max-width: 800px; align-items: center;" class="content-box-2-text">
+                            <p style="line-height: 1.85; color: rgb(75, 75, 75); font-weight: 400; font-size: 16px; text-align: center">
+                                Designed for fitness and everyday outfits
+                            </p>
+                            <h2 class="content-box-6-title">MEET THE SPOILED BUNNY</h2>
+                            <p style="line-height: 1.85; color: rgb(75, 75, 75); font-weight: 400; font-size: 16px; text-align: center">
+                                We embrace simplicity and function, going back to the basics while ensuring that every design radiates an irresistable sense of fun
+                            </p>
+                            <br />
+                            <br />
+                            <button class="content-buttons" id="get-to-know-btn">GET TO KNOW US</button>
+                        </div>
+                    </div>
+                    <div class="line-break"></div>
+                </div>
+                <form class="content-box-4" id="contact-form">
                     <h2 class="content-box-6-title">CONTACT ME</h2>
                     <br />
                     <h3 style="max-width: 80%; font-weight: 400; font-size: 16px">Feel free to send me a message if you have any questions about me or my products!</h3>
@@ -149,13 +165,13 @@
                 </a> -->
                 <div class="footer-section">
                     <h2 class="footer-section-title">Need Help?</h2>
-                    <p class="footer-section-subtitle">Contact me</p>
-                    <p class="footer-section-subtitle">FAQs</p>
-                    <p class="footer-section-subtitle">Size Guide</p>
+                    <p class="footer-section-subtitle" id="footer-contact-me">Contact me</p>
+                    <p class="footer-section-subtitle" onclick='window.location.href = "faq.html"'>FAQs</p>
+                    <p class="footer-section-subtitle" onclick='window.location.href = "guide.html"'>Size Guide</p>
                 </div>
                 <div class="footer-section">
                     <h2 class="footer-section-title">Info</h2>
-                    <p class="footer-section-subtitle">About Me</p>
+                    <p class="footer-section-subtitle" onclick='window.location.href = "about.html"'>About Me</p>
                     <p class="footer-section-subtitle">Instagram</p>
                     <p class="footer-section-subtitle">Tiktok</p>
                 </div>

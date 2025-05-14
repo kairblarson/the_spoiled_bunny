@@ -337,7 +337,7 @@ $(document).ready(function () {
         );
     });
 
-    $("#content-contactme-btn").click(function () {
+    $("#content-contactme-btn, #footer-contact-me").click(function () {
         if (checkIfOnIndexPage() == false) {
             window.location.href = "index.html?scrollTo=contactme";
         }
@@ -401,7 +401,7 @@ $(document).ready(function () {
         hideMobileMenu();
     });
 
-    $("#mobile-menu-aboutme").click(function () {
+    $("#mobile-menu-aboutme, #get-to-know-btn").click(function () {
         window.location.href = "about.html";
     });
 
@@ -438,7 +438,7 @@ $(document).ready(function () {
     function hideCart() {
         $(".checkout-menu").animate({ right: -340 }, "slow");
         $("#unfocused-div").css("display", "none");
-        isMenuActive = false;
+        isCartActive = false;
     }
 
     //change this to check if NOT on index page so we can redirect to from a specific item as well => what am i talking about here
