@@ -44,8 +44,8 @@ function addItemToCart(item) {
     //add a message that says that the item has been added to the cart
 }
 
-$('body').on('click', '.checkout-item', function (e) {
-    console.log("here")
+$("body").on("click", ".checkout-item", function (e) {
+    console.log("here");
     const file = $(this).data("file");
     window.location.href = file;
 });
@@ -362,16 +362,8 @@ $(document).ready(function () {
         );
     });
 
-    $("#nav-button-aboutme").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=aboutme";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-2").offset().top - 100,
-            },
-            1000
-        );
+    $("#nav-button-about").click(function () {
+        window.location.href = "about.html";
     });
 
     $("#nav-button-contactme").click(function () {
@@ -410,16 +402,7 @@ $(document).ready(function () {
     });
 
     $("#mobile-menu-aboutme").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=aboutme";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-2").offset().top - 100,
-            },
-            1000
-        );
-        hideMobileMenu();
+        window.location.href = "about.html";
     });
 
     $("#mobile-menu-contactme").click(function () {
@@ -476,16 +459,6 @@ $(document).ready(function () {
                         $("html, body").animate(
                             {
                                 scrollTop: $("#main").offset().top,
-                            },
-                            1000
-                        );
-                    }
-                    break;
-                case "aboutme":
-                    {
-                        $("html, body").animate(
-                            {
-                                scrollTop: $(".content-box-2").offset().top - 100,
                             },
                             1000
                         );

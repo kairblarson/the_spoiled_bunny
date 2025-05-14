@@ -692,7 +692,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding-block: 20px;
+    padding: 50px;
     width: 100%;
     max-width: 1000px;
 }
@@ -706,6 +706,21 @@ a {
     width: 100%;
     padding-block: 10px;
     color: #fbf6ee;
+}
+.footer-section {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.footer-section-title {
+    margin-bottom: 5px;
+    color: #e3e3e3;
+}
+.footer-section-subtitle {
+    font-weight: 400;
+    color: #e3e3e3;
 }
 .program-title {
     text-decoration: underline;
@@ -852,58 +867,6 @@ a {
         font-size: 15px;
     }
 }
-/* @media (max-width: 950px) {
-    .nav-button {
-        font-size: 15px;
-    }
-    .content-box-2-wrapper {
-        flex-direction: column;
-        align-items: center;
-        padding: 0px !important;
-        gap: 20px !important;
-        margin-block: 50px;
-    }
-    .content-box-2-text {
-        max-width: 60% !important;
-    }
-    .content-box-2-img {
-        width: 60%;
-        height: 500px;
-    }
-    .contact-wrapper {
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .contact-card {
-        width: 80%;
-    }
-    .testimonial-wrapper {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-    .content-box-5-identity {
-        text-align: center;
-    }
-    .content-box-6-container {
-        width: 100%;
-        padding: 0px;
-    }
-    .content-box-6-merch {
-        padding: 0px;
-        align-items: center;
-    }
-    .content-box-6 {
-        padding-inline: 20px;
-    }
-    .trial-card-inputs {
-        flex-direction: column;
-    }
-} */
-
 @media (max-width: 980px) {
     .nav-button {
         font-size: 15px;
@@ -1097,6 +1060,9 @@ a {
     }
     .merch-other-imgs-container {
         max-width: 100%;
+    }
+    .footer-details {
+        flex-direction: column;
     }
 }
 
