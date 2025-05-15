@@ -89,7 +89,7 @@ function removeFromCart(event, item) {
 function submitOrder() {
     //call serverless function here to generate checkout session i think
     console.log("Submitting order...: " + JSON.stringify(cart));
-    fetch("https://spoiled-bunny-73kp3yk1e-kai-larsons-projects.vercel.app/api/create-checkout-session", {
+    fetch("https://spoiled-bunny-afomxrnoo-kai-larsons-projects.vercel.app/api/create-checkout-session", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
