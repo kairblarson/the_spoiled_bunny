@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
     // Allow CORS from any origin (or restrict to specific origin)
-    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5501"); // Or use your domain instead of "*"
+    res.setHeader("Access-Control-Allow-Origin", "*"); // Or use your domain instead of "*"
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, GET");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
