@@ -91,20 +91,14 @@ function submitOrder() {
     console.log("Submitting order...: " + JSON.stringify(cart));
     fetch("api/create-checkout-session", {
         method: "POST",
-        mode: "cors",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            line_items: [
-                { price: "price_123", quantity: 2 },
-                { price: "price_456", quantity: 1 },
-            ],
-        }),
+        body: JSON.stringify(cart),
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log("RES: "+res);
+            console.log("RES: "+data);
             // window.location.href = data.url; // redirect to Stripe Checkout
         });
 }

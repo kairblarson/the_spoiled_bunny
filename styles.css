@@ -3,7 +3,8 @@
     margin: 0px;
     font-weight: 500;
     border: none;
-    font-family: "Work Sans", serif;
+    font-family: "Montserrat", serif;
+    font-weight: 400;
 }
 body {
     background-color: #fbf6ee;
@@ -72,7 +73,7 @@ select {
 }
 .nav-icon:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 .nav-icons-container {
     width: 100%;
@@ -95,12 +96,13 @@ select {
 }
 .nav-button:hover {
     cursor: pointer;
-    border-bottom: 3px solid rgb(245, 147, 195) !important;
+    border-bottom: 3px solid rgb(255, 198, 209) !important;
     transition: linear all 0.1s;
 }
 .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .trial-content {
     width: 100%;
@@ -125,23 +127,30 @@ select {
     background: linear-gradient(to top, rgb(46, 46, 46), transparent);
     color: #fbf6ee;
 }
+#main-products-btn {
+    width: fit-content;
+    border: none;
+}
 .content-overlay-container {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     /* justify-content: center; */
     flex-direction: column;
-    /* margin-left: 150px; */
+    margin-left: 150px;
     margin-top: 150px;
 }
 .content-name,
 .merch-name {
     font-size: 35px;
-    font-weight: 800;
+    font-weight: 500;
     color: #fbf6ee;
-    font-family: "Oswald", sans-serif;
-    /* font-family: "Yellowtail", serif; */
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 500;
+}
+.content-name {
+    font-size: 40px;
 }
 .merch-details-container {
     display: flex;
@@ -153,7 +162,7 @@ select {
 }
 .merch-details-price {
     font-size: 25px;
-    font-weight: 300;
+    font-weight: 400;
 }
 .merch-details-desc {
     font-weight: 400;
@@ -163,13 +172,13 @@ select {
 }
 .content-header {
     font-size: 65px;
-    font-weight: bold;
+    font-weight: 500;
     color: #fbf6ee;
-    text-align: center;
+    /* text-align: center; */
 }
 .content-subheader {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 500;
     color: #fbf6ee;
     text-align: center;
 }
@@ -197,9 +206,14 @@ select {
     flex-direction: column;
     align-items: center;
     /* padding-top: 100px; */
+    width: 100%;
+}
+.content-box-2 {
+    background-color: rgb(255, 227, 233);
 }
 .content-box-4 {
-    margin-bottom: 50px;
+    width: 100%;
+    padding: 50px;
 }
 .content-box-8 {
     margin-top: 150px;
@@ -208,6 +222,7 @@ select {
 .content-box-6,
 .content-box-7 {
     padding: 50px;
+    width: 100%;
     /* margin-top: 100px; */
 }
 .content-box-3-title,
@@ -217,17 +232,16 @@ select {
 .content-box-6-title,
 .content-box-7-title,
 .content-box-8-title {
-    font-weight: bold;
     font-size: 40px;
     text-align: start;
     color: rgb(46, 46, 46);
     font-size: 35px;
-    font-weight: 800;
     /* color: #fbf6ee; */
-    font-family: "Oswald", sans-serif;
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 500;
 }
 .content-box-6-title {
-    font-weight: 300;
+    font-weight: 500;
     text-align: center;
 }
 .content-box-8-title {
@@ -249,8 +263,8 @@ select {
     margin-block: 50px;
 }
 .content-box-2-title {
-    /* font-family: "Yellowtail", serif; */
-    font-family: "Oswald", sans-serif;
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 500;
 }
 .content-box-2-img {
     width: 40%;
@@ -324,7 +338,7 @@ li {
 }
 #menu-container:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 #mobile-menu-container {
     background-color: #fbf6ee;
@@ -386,33 +400,20 @@ li {
     padding-inline: 40px;
     padding-block: 16px;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 400;
     border: 1px solid #fbf6ee;
     color: rgb(46, 46, 46);
     border-radius: 5px;
     transition: all linear 0.1s;
 }
 .content-buttons:hover {
-    background-color: rgb(245, 147, 195) !important;
-    background-color: rgb(245, 147, 195) !important;
+    background-color: rgb(255, 198, 209) !important;
+    background-color: rgb(255, 198, 209) !important;
     cursor: pointer;
     color: rgb(46, 46, 46) !important;
 }
 p {
     color: rgb(46, 46, 46);
-}
-.program-card-buy-btn,
-.merch-buy-btn,
-.send-msg-btn,
-.enroll-btn,
-.submit-trial-btn {
-    background-color: rgb(245, 147, 195);
-    padding: 10px;
-    border-radius: 5px;
-    color: #fbf6ee;
-    font-weight: bold;
-    width: 100%;
-    transition: all linear 0.1s;
 }
 .merch-details-buy-btn,
 .merch-buy-btn,
@@ -420,14 +421,18 @@ p {
 .send-msg-btn,
 .enroll-btn,
 .submit-trial-btn {
-    background-color: rgb(245, 147, 195);
-    padding: 10px;
+    background-color: #fbf6ee;
+    padding-inline: 40px;
+    padding-block: 16px;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(46, 46, 46);
     border-radius: 5px;
-    color: #fbf6ee;
-    font-weight: 500;
-    width: 100%;
-    font-size: 18px;
     transition: all linear 0.1s;
+    background-color: #393939;
+    color: #ffffff;
+    width: fit-content;
+    
     /* border: 1px solid rgb(255, 255, 255); */
 }
 .submit-trial-btn {
@@ -452,8 +457,8 @@ p {
     transition: all linear 0.1s;
 }
 .selected-image {
-    box-shadow: rgb(245, 147, 195) 0px 0px 10px 0px;
-    /* border: 2px solid rgb(245, 147, 195); */
+    box-shadow: rgb(255, 198, 209) 0px 0px 10px 0px;
+    /* border: 2px solid rgb(255, 198, 209); */
     scale: 1.1;
 }
 .merch-select-container {
@@ -473,10 +478,8 @@ p {
 .merch-details-buy-btn:hover,
 .enroll-btn:hover,
 .submit-trial-btn:hover {
-    scale: 1.02;
+    opacity: .5;
     cursor: pointer;
-    box-shadow: rgb(245, 147, 195) 0px 0px 10px 0px;
-    transition: all linear 0.1s;
 }
 .card-price {
     background-color: rgb(183, 183, 183);
@@ -497,8 +500,8 @@ p {
 }
 input:focus,
 textarea:focus {
-    /* border: 1px solid rgb(245, 147, 195); */
-    box-shadow: rgb(245, 147, 195) 0px 0px 5px 0px;
+    /* border: 1px solid rgb(255, 198, 209); */
+    box-shadow: rgb(255, 198, 209) 0px 0px 5px 0px;
 }
 .text-inputs,
 .contact-card {
@@ -540,7 +543,7 @@ a {
     height: 100%;
 }
 /* .send-msg-btn {
-    background-color: rgb(245, 147, 195);
+    background-color: rgb(255, 198, 209);
     padding: 10px;
     border-radius: 5px;
     color: white;
@@ -612,9 +615,18 @@ a {
     width: 300px;
     /* background-color: rgb(231, 231, 231); */
 }
+.content-box-6-merch {
+    transition: all linear .1s;
+    border-radius: 20px;
+    border: 1px solid transparent;
+}
 .content-box-6-merch:hover {
-    box-shadow: rgb(245, 147, 195) 0px 0px 5px 0px;
+    /* box-shadow: rgb(255, 198, 209) 0px 0px 5px 0px; */
     cursor: pointer;
+    background-color: rgb(255, 227, 233);
+    border: 1px solid #393939;
+    /* border-top-right-radius: 200px;
+    border-top-left-radius: 200px; */
 }
 .merch-container {
     flex-direction: row;
@@ -626,14 +638,16 @@ a {
 .merch-title {
     font-size: 20px;
     font-weight: 500;
+    font-family: "Playfair Display", sans-serif;
 }
 .merch-details-title {
     font-size: 30px;
     font-weight: 500;
+    font-family: "Playfair Display", sans-serif;
     /* text-decoration: underline; */
 }
 .merch-desc {
-    font-weight: 300;
+    font-weight: 400;
 }
 .merch-imgs-container {
     display: flex;
@@ -647,13 +661,15 @@ a {
 .merch-img {
     height: 400px;
     width: 300px;
-    border-radius: 5px;
+    border-radius: 20px;
     object-fit: cover;
+    border-top-right-radius: 200px;
+    border-top-left-radius: 200px;
 }
 .merch-page-img {
     height: 400px;
     border: 1px solid gainsboro;
-    border-radius: 5px;
+    border-radius: 20px;
     object-fit: cover;
     width: 400px;
 }
@@ -670,11 +686,11 @@ a {
     height: 75px;
     object-fit: cover;
     border-radius: 5px;
-    transition: all linear .1s;
+    transition: all linear 0.1s;
 }
 .merch-other-img:hover {
     cursor: pointer;
-    opacity: .5;
+    opacity: 0.5;
 }
 .message-modal {
     background-color: rgb(80, 194, 80);
@@ -749,7 +765,7 @@ a {
 }
 .program-title {
     text-decoration: underline;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 20px;
 }
 .title-container {
@@ -761,10 +777,10 @@ a {
     margin-bottom: 50px;
 }
 .merch-price {
-    font-weight: 300;
+    font-weight: 400;
 }
 .merch-sub {
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
 }
 .cart-amount {
@@ -886,17 +902,16 @@ a {
     padding-inline: 40px;
     padding-block: 16px;
     font-size: 15px;
-    font-weight: bold;
-    border: 1px solid #fbf6ee;
+    font-weight: 400;
     color: rgb(46, 46, 46);
     border-radius: 5px;
     transition: all linear 0.1s;
     background-color: #393939;
-    color:#ffffff;
+    color: #ffffff;
     width: fit-content;
 }
 #get-to-know-btn:hover {
-    opacity: .5;
+    opacity: 0.5;
     cursor: pointer;
 }
 @media (max-width: 1100px) {
@@ -911,7 +926,8 @@ a {
     }
 }
 @media (max-width: 980px) {
-    .content-box-6, .content-box-4 {
+    .content-box-6,
+    .content-box-4 {
         padding: 20px;
     }
     .nav-button {
@@ -955,9 +971,6 @@ a {
         width: 100%;
         padding: 0px;
     }
-    .content-box-6-merch {
-        align-items: center;
-    }
     .content-box-6 {
         padding-inline: 20px;
     }
@@ -974,11 +987,11 @@ a {
         display: flex;
     }
     .content-overlay-container {
-        /* margin-left: 50px; */
-        /* padding: 10px; */
+        margin-left: 50px;
+        padding: 20px;
     }
     .content-name {
-        font-size: 25px;
+        font-size: 30px;
     }
     .content-header {
         font-size: 50px;
@@ -1069,7 +1082,7 @@ a {
     .merch-buy-btn,
     .send-msg-btn,
     .enroll-btn {
-        font-size: large;
+        /* font-size: large; */
     }
     .merch-price,
     .merch-title,
@@ -1084,6 +1097,7 @@ a {
         height: 300px;
     }
     .content-box-4 {
+        width: 80%;
     }
     .merch-container {
         flex-direction: column;
@@ -1117,6 +1131,33 @@ a {
     .footer-section {
         align-items: center;
         justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .content-overlay-container {
+        margin-left: 0px;
+        padding: 20px;
+        align-items: center;
+    }
+    .content-name {
+        font-size: 30px;
+        text-align: center;
+    }
+    .content-header {
+        font-size: 50px;
+        text-align: center;
+    }
+    .content-box-4 {
+        width: 90%;
+    }
+    .merch-title {
+        text-align: center;
+    }
+    .content-box-6-merch {
+        align-items: center;
+        padding: 10px;
+        width: fit-content;
     }
 }
 
