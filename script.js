@@ -89,7 +89,7 @@ function removeFromCart(event, item) {
 function submitOrder() {
     //call serverless function here to generate checkout session
     console.log("Submitting order...: " + JSON.stringify(cart));
-    fetch("https://spoiled-bunny-afomxrnoo-kai-larsons-projects.vercel.app/api/create-checkout-session", {
+    fetch("api/create-checkout-session", {
         method: "POST",
         mode: "cors",
         headers: {
